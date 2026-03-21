@@ -12,10 +12,15 @@ func _ready() -> void:
 	# initialize the scene path with the current one
 	_current_scene_path = get_tree().current_scene.scene_file_path
 
+func _input(event):
+	if event.is_action_pressed("pause"):
+		var screenshot = get_viewport().get_texture().get_image()
+		Context.switch_scene("res://scenes/pause.tscn", ImageTexture.create_from_image(screenshot))
+
 
 ## Switch to a different scene.
 ## If it's a pause, we suspend the current scene and store, so we can save the current state.
-func switch_scene(path: NodePath, pause: bool = false) -> Error:
+func switch_scene(path: NodePath, pause: ImageTexture = null) -> Error:
 	_history.push_back(_current_scene_path)
 
 	if pause:
@@ -25,6 +30,12 @@ func switch_scene(path: NodePath, pause: bool = false) -> Error:
 		current_scene.get_parent().remove_child(current_scene)
 
 		var new_scene = load(path).instantiate()
+		
+		if new_scene.has_method("set_background"):
+			new_scene.set_background(pause)
+		else:
+			print_debug("Pause could have method: set_background(ImageTexture) -> void")
+		
 		get_tree().root.add_child(new_scene)
 		get_tree().set_current_scene(new_scene)
 		_current_scene_path = path

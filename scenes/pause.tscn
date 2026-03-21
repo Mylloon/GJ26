@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b3usbt2dsyi46"]
+
+[ext_resource type="Script" uid="uid://xtn0txivok8r" path="res://scripts/pause.gd" id="1_f1d2v"]
+
+[sub_resource type="Shader" id="Shader_f1d2v"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8yp4"]
+shader = SubResource("Shader_f1d2v")
+
+[node name="Pause" type="Control" unique_id=786217571 node_paths=PackedStringArray("background")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_f1d2v")
+background = NodePath("Background")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1780139030]
+material = SubResource("ShaderMaterial_r8yp4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1776540544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1893408878]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.23
+theme_override_font_sizes/normal_font_size = 45
+text = "PAUSE"
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1750045979]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 38
+theme_override_constants/margin_right = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1119534817]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="Resume" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=885348539]
+layout_mode = 2
+text = "Revenir au jeu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940647093]
