@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b4b4p06agqked"]
+
+[ext_resource type="PackedScene" uid="uid://cbumhcera7fns" path="res://scenes/player.tscn" id="1_7ilqw"]
+[ext_resource type="PackedScene" uid="uid://bxcidqnhe7vvg" path="res://scenes/camera.tscn" id="2_mrp8g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]
+
+[sub_resource type="Sky" id="Sky_mrp8g"]
+sky_material = SubResource("ProceduralSkyMaterial_7ilqw")
+
+[sub_resource type="Environment" id="Environment_2b6py"]
+background_mode = 2
+sky = SubResource("Sky_mrp8g")
+
+[node name="Kitchen" type="Node3D" unique_id=818559425]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1371120202]
+environment = SubResource("Environment_2b6py")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1247583535]
+
+[node name="Player" parent="." unique_id=143797749 instance=ExtResource("1_7ilqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4147868, 0.60738444, -1.742671)
+
+[node name="Camera" parent="." unique_id=123174610 instance=ExtResource("2_mrp8g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2954056, 0)
