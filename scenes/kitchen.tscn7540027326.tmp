@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b3a4p7agoreid"]
 
-[ext_resource type="PackedScene" uid="uid://bopli7nsqsjlf" path="res://scenes/player.tscn" id="1_7ilqw"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_7ilqw"]
 [ext_resource type="Script" uid="uid://b73ajpuxa6xqx" path="res://scripts/camera_3d.gd" id="2_ktc20"]
 [ext_resource type="Shader" uid="uid://c6qhkhar3xobg" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://cbdc5taksqq0r" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall.fbx" id="3_2b6py"]
@@ -78,12 +78,15 @@ size = Vector2i(256, 144)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1319395836]
-transform = Transform3D(0.81310076, 0.2460158, -0.5275825, 0, 0.90630776, 0.42261824, 0.582123, -0.34363124, 0.73691946, -15.095, 20.933, 25.793)
+transform = Transform3D(0.8377187, 0.27305096, -0.47293812, 0, 0.8660254, 0.5, 0.5461019, -0.41885936, 0.7254857, -15.095, 23.548, 25.793)
 projection = 1
 current = true
 fov = 118.6614
-size = 13.775
+size = 13.114
 near = 0.003
+script = ExtResource("2_ktc20")
+target_path = null
+smoothing = null
 
 [node name="PostProcessing" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D" unique_id=187842517]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -214,6 +217,3 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.1832263, 1, 0)
 
 [node name="wall8" parent="Interior/Ground/Wall/wallX2" unique_id=335990744 instance=ExtResource("3_2b6py")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.129262, 1, 0)
-
-[node name="CameraRig" type="Node3D" parent="." unique_id=68610899]
-script = ExtResource("2_ktc20")
