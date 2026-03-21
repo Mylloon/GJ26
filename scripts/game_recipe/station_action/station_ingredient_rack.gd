@@ -2,7 +2,7 @@ class_name StationIngredientRack
 extends StationBase
 
 
-@export var available_ingredients: Array[String] = ["farine","sucre","lait","levure","sel","chocolat","matcha","café_moulu","crème","vanille","pépites_chocolat","amandes","fraise","mangue","sirop_vanille","sirop_fraise","sirop_mangue","cannelle","pain_de_mie"]
+@export var available_ingredients: Array[String] = ["farine","beurre","oeufs","sucre","lait","levure","sel","chocolat","matcha","café_moulu","crème","vanille","pépites_chocolat","amandes","fraise","mangue","sirop_vanille","sirop_fraise","sirop_mangue","cannelle","pain_de_mie"]
 
 # Référence au joueur — assigner depuis la scène principale
 @onready var player_ref: Node = $"../../../../../../Player/CharacterBody3D"

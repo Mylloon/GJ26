@@ -10,6 +10,7 @@ extends Node
 # ── Signaux vers l'UI ──────────────────────────────────────────────────────
 signal recipe_loaded(recipe: Dictionary)
 signal step_validated(step_index: int, success: bool)
+signal step_reset()                          # raté → toutes les encoches effacées
 signal recipe_completed(recipe_id: String)
 signal recipe_failed(reason: String)
 signal chaos_triggered(chaos_type: String)
@@ -17,7 +18,7 @@ signal controls_inverted_changed(inverted: bool)
 
 # ── État courant ───────────────────────────────────────────────────────────
 var current_recipe: Dictionary = {}
-var expected_step_index: int = 0  # index de la prochaine étape à valider
+var expected_step_index: int = 0      # index de la prochaine étape à valider
 var controls_inverted: bool = false
 
 # ── Chaos ─────────────────────────────────────────────────────────────────
@@ -26,31 +27,31 @@ var controls_inverted: bool = false
 var chaos_timer: Timer
 
 # ── Référence au joueur ────────────────────────────────────────────────────
-var player: Node = null  # assigné depuis la scène principale
+var player: Node = null   # assigné depuis la scène principale
 
 
 func _ready() -> void:
 	# Créer le timer de chaos
+	print("ready")
+	"""
 	chaos_timer = Timer.new()
 	chaos_timer.one_shot = true
 	chaos_timer.timeout.connect(_trigger_random_chaos)
 	add_child(chaos_timer)
-
+"""
 
 # ── Charger une recette ────────────────────────────────────────────────────
-
 
 func load_recipe(recipe: Dictionary) -> void:
 	current_recipe = recipe
 	expected_step_index = 0
 	emit_signal("recipe_loaded", recipe)
-	_schedule_next_chaos()
+	# _schedule_next_chaos()
 
 
 # ── Recevoir une action du joueur ──────────────────────────────────────────
 # Connecter le signal action_performed du Player ici :
 # player.action_performed.connect(GameManager.on_action_performed)
-
 
 func on_action_performed(action_id: String, ingredient: String, station_id: String) -> void:
 	if current_recipe.is_empty():
@@ -75,13 +76,10 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 
 # ── Validation d'une étape ─────────────────────────────────────────────────
 
-
-func _validate_step(
-	step: Dictionary, action_id: String, ingredient: String, station_id: String
-) -> bool:
-	var expected_action: String = step.get("action", "")
-	var expected_poste: String = step.get("poste", "")
-	var expected_ings: Array = step.get("ingredients", [])
+func _validate_step(step: Dictionary, action_id: String, ingredient: String, station_id: String) -> bool:
+	var expected_action: String  = step.get("action", "")
+	var expected_poste: String   = step.get("poste", "")
+	var expected_ings: Array     = step.get("ingredients", [])
 
 	# Vérifier action et poste
 	if action_id != expected_action:
@@ -99,7 +97,6 @@ func _validate_step(
 
 # ── Recette terminée ───────────────────────────────────────────────────────
 
-
 func _on_recipe_complete() -> void:
 	emit_signal("recipe_completed", current_recipe.get("id", ""))
 	chaos_timer.stop()
@@ -107,16 +104,16 @@ func _on_recipe_complete() -> void:
 	expected_step_index = 0
 
 
-# ── Mauvaise étape ─────────────────────────────────────────────────────────
-
+# ── Mauvaise étape → remise à zéro ────────────────────────────────────────
 
 func _on_wrong_step(action_id: String, station_id: String) -> void:
-	print("[GameManager] Mauvaise étape : %s sur %s" % [action_id, station_id])
-	# Pénalité optionnelle (temps, vie…) gérée ici
+	print("[GameManager] Mauvaise étape : %s sur %s " % [action_id, station_id])
+	#print("— remise à zéro")
+	# expected_step_index = 0
+	#emit_signal("step_reset")
 
 
 # ── Chaos : événements aléatoires ─────────────────────────────────────────
-
 
 func _schedule_next_chaos() -> void:
 	var delay := randf_range(chaos_interval_min, chaos_interval_max)
@@ -139,7 +136,7 @@ func _trigger_random_chaos() -> void:
 			emit_signal("chaos_triggered", "fake_ingredient")
 
 	emit_signal("chaos_triggered", chosen)
-	_schedule_next_chaos()
+	# _schedule_next_chaos()
 
 
 func _toggle_controls_inverted() -> void:
@@ -150,7 +147,6 @@ func _toggle_controls_inverted() -> void:
 
 
 # ── API publique ───────────────────────────────────────────────────────────
-
 
 func get_current_step() -> Dictionary:
 	if current_recipe.is_empty():

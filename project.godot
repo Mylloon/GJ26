@@ -22,6 +22,7 @@ AudioHandler="*uid://dj1bs511b4hvr"
 ConfigHandler="*uid://bq10ig1owopo4"
 Context="*uid://j6k2b036hhng"
 RecipeLoader="*uid://i1taills7dxb"
+GameManager="*uid://cjdm2clw7nuu8"
 
 [display]
 
