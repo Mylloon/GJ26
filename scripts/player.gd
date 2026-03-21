@@ -44,8 +44,10 @@ func _physics_process(_delta):
 		inputs = -inputs
 
 	var direction = (
-		transform.basis * Vector3(inputs.x, 0, inputs.y)
-	).rotated(Vector3.UP, camera_rotation.y).normalized()
+		(transform.basis * Vector3(inputs.x, 0, inputs.y))
+		. rotated(Vector3.UP, camera_rotation.y)
+		. normalized()
+	)
 
 	if direction:
 		velocity.x = direction.x * SPEED

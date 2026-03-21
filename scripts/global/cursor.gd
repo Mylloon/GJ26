@@ -16,6 +16,6 @@ func _process(_delta):
 	var click = "clic_gauche"
 	if Input.is_action_just_pressed(click):
 		Input.set_custom_mouse_cursor(clicked, Input.CURSOR_ARROW)
-		
+
 	if Input.is_action_just_released(click):
 		Input.set_custom_mouse_cursor(arrow, Input.CURSOR_ARROW)
