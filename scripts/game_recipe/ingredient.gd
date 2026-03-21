@@ -7,8 +7,8 @@ class_name Ingredient
 extends StaticBody3D
 
 # ── Identité ───────────────────────────────────────────────────────────────
-@export var ingredient_id: String = ""      # ex: "farine", "oeufs", "matcha"
-@export var ingredient_label: String = ""   # ex: "Farine", "Œufs"
+@export var ingredient_id: String = ""  # ex: "farine", "oeufs", "matcha"
+@export var ingredient_label: String = ""  # ex: "Farine", "Œufs"
 
 # Si true : source infinie (étagère, frigo) — réapparaît après ramassage
 # Si false : disparaît définitivement après ramassage
@@ -16,7 +16,7 @@ extends StaticBody3D
 
 # ── Noeuds ────────────────────────────────────────────────────────────────
 @onready var mesh_instance: MeshInstance3D = get_node_or_null("MeshInstance3D")
-@onready var prompt_label: Label3D         = get_node_or_null("PromptLabel")
+@onready var prompt_label: Label3D = get_node_or_null("PromptLabel")
 
 
 func _ready() -> void:

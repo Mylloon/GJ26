@@ -1,13 +1,12 @@
-
 # recipe_loader.gd
 # Place tes JSON dans res://data/recettes_jeu.json et res://data/actions_jeu.json
 
 extends Node
 
-var recipes:     Dictionary = {}   # { "cookie_chocolat": { ...recette... }, … }
-var actions:     Dictionary = {}   # { "couper": { label, icone, ... }, … }
-var ingredients: Dictionary = {}   # { "farine": { label, emoji }, … }
-var meta:        Dictionary = {}   # postes, etc.
+var recipes: Dictionary = {}  # { "cookie_chocolat": { ...recette... }, … }
+var actions: Dictionary = {}  # { "couper": { label, icone, ... }, … }
+var ingredients: Dictionary = {}  # { "farine": { label, emoji }, … }
+var meta: Dictionary = {}  # postes, etc.
 
 const RECIPES_PATH := "res://assets/data/recettes_jeu.json"
 const ACTIONS_PATH := "res://assets/data/actions_jeu.json"
@@ -21,6 +20,7 @@ func _ready() -> void:
 
 
 # ── Chargement ─────────────────────────────────────────────────────────────
+
 
 func _load_recipes() -> void:
 	var file := FileAccess.open(RECIPES_PATH, FileAccess.READ)
@@ -94,6 +94,7 @@ func _load_ingredients() -> void:
 
 # ── API publique ───────────────────────────────────────────────────────────
 
+
 func get_recipe(id: String) -> Dictionary:
 	return recipes.get(id, {})
 
@@ -140,17 +141,23 @@ func get_steps_with_labels(recipe_id: String) -> Array:
 	for step in recipe.get("etapes", []):
 		var action_id: String = step.get("action", "")
 		var action_data := get_action(action_id)
-		result.append({
-			"ordre":       step.get("ordre", 0),
-			"ingredients": step.get("ingredients", []),
-			"action_id":   action_id,
-			"action_label": action_data.get("label", action_id),
-			"action_icon":  action_data.get("icone", "?"),
-			"poste":        step.get("poste", ""),
-			"note":         step.get("note", ""),
-		})
+		(
+			result
+			. append(
+				{
+					"ordre": step.get("ordre", 0),
+					"ingredients": step.get("ingredients", []),
+					"action_id": action_id,
+					"action_label": action_data.get("label", action_id),
+					"action_icon": action_data.get("icone", "?"),
+					"poste": step.get("poste", ""),
+					"note": step.get("note", ""),
+				}
+			)
+		)
 
 	return result
+
 
 func get_ingredient(id: String) -> Dictionary:
 	return ingredients.get(id, {})
@@ -162,6 +169,7 @@ func get_ingredient_label(id: String) -> String:
 
 func get_ingredient_emoji(id: String) -> String:
 	return ingredients.get(id, {}).get("emoji", "?")
+
 
 """
 func get_ingredient(id: String) -> Dictionary:

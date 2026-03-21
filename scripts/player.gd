@@ -29,7 +29,7 @@ var nearby_interactable: Node = null
 # ── Signaux vers le GameManager ────────────────────────────────────────────
 signal action_performed(action_id: String, ingredient: String, station_id: String)
 signal ingredient_picked_up(ingredient_id: String)
-signal ingredient_dropped()
+signal ingredient_dropped
 
 
 func _ready() -> void:
@@ -37,7 +37,7 @@ func _ready() -> void:
 	interaction_zone.body_exited.connect(_on_body_exited_zone)
 	interaction_zone.area_entered.connect(_on_area_entered_zone)
 	interaction_zone.area_exited.connect(_on_area_exited_zone)
-	
+
 
 func _input(event):
 	if event.is_action_pressed("pause"):
@@ -47,6 +47,7 @@ func _input(event):
 
 # ── Mouvement ──────────────────────────────────────────────────────────────
 
+
 func _physics_process(_delta):
 	var inputs = Input.get_vector("left", "right", "forward", "backward")
 
@@ -54,8 +55,10 @@ func _physics_process(_delta):
 		inputs = -inputs
 
 	var direction = (
-		transform.basis * Vector3(inputs.x, 0, inputs.y)
-	).rotated(Vector3.UP, camera_rotation.y).normalized()
+		(transform.basis * Vector3(inputs.x, 0, inputs.y))
+		. rotated(Vector3.UP, camera_rotation.y)
+		. normalized()
+	)
 
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -69,6 +72,7 @@ func _physics_process(_delta):
 
 # ── Input interaction ──────────────────────────────────────────────────────
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		_try_interact()
@@ -77,7 +81,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		drop_ingredient()
 """
 
+
 # ── Détection de zone ──────────────────────────────────────────────────────
+
 
 func _on_body_entered_zone(body: Node) -> void:
 	print(nearby_interactable)
@@ -119,6 +125,7 @@ func _hide_interaction_popup() -> void:
 
 # ── Interaction principale ─────────────────────────────────────────────────
 
+
 func _try_interact() -> void:
 	if nearby_interactable == null:
 		return
@@ -130,9 +137,10 @@ func _try_interact() -> void:
 
 # ── Recevoir un ingrédient depuis une étagère (appelé par StationIngredientRack) ──
 
+
 func receive_ingredient(ingredient_id: String) -> void:
 	held_ingredient = ingredient_id
-	held_ingredient_node = null   # pas de node 3D associé, vient du menu
+	held_ingredient_node = null  # pas de node 3D associé, vient du menu
 	_update_held_display()
 	emit_signal("ingredient_picked_up", ingredient_id)
 	# Rafraîchir le hint du popup (l'ingrédient en main a changé)
@@ -141,6 +149,7 @@ func receive_ingredient(ingredient_id: String) -> void:
 
 
 # ── Poser l'ingrédient ─────────────────────────────────────────────────────
+
 
 func drop_ingredient() -> void:
 	if held_ingredient == "":
@@ -157,6 +166,7 @@ func drop_ingredient() -> void:
 
 # ── Utiliser un poste ──────────────────────────────────────────────────────
 
+
 func _try_use_station(station: Node) -> void:
 	var result: Dictionary = station.try_interact(held_ingredient)
 
@@ -169,10 +179,10 @@ func _try_use_station(station: Node) -> void:
 			_show_feedback(msg)
 		return
 
-	var action_id: String  = result.get("action_id", "")
+	var action_id: String = result.get("action_id", "")
 	var station_id: String = result.get("station_id", "")
-	var consumed: bool     = result.get("consumes_ingredient", false)
-	var produced: String   = result.get("produces_ingredient", "")
+	var consumed: bool = result.get("consumes_ingredient", false)
+	var produced: String = result.get("produces_ingredient", "")
 
 	if consumed and held_ingredient != "":
 		if held_ingredient_node:
@@ -191,6 +201,7 @@ func _try_use_station(station: Node) -> void:
 
 # ── Affichage ingrédient en main ───────────────────────────────────────────
 
+
 func _update_held_display() -> void:
 	if not held_item_display:
 		return
@@ -200,6 +211,7 @@ func _update_held_display() -> void:
 
 
 # ── Feedback texte rapide ──────────────────────────────────────────────────
+
 
 func _show_feedback(text: String) -> void:
 	var label := get_node_or_null("FeedbackLabel")
@@ -213,6 +225,7 @@ func _show_feedback(text: String) -> void:
 
 
 # ── API publique appelée par le GameManager ────────────────────────────────
+
 
 func set_controls_inverted(inverted: bool) -> void:
 	controls_inverted = inverted

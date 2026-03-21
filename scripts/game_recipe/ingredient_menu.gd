@@ -6,10 +6,10 @@ extends CanvasLayer
 
 signal ingredient_chosen(ingredient_id: String)
 
-@onready var grid:         GridContainer = $Panel/VBox/ScrollContainer/GridContainer
-@onready var title_label:  Label         = $Panel/VBox/Header/TitleLabel
-@onready var close_button: Button        = $Panel/VBox/Header/CloseButton
-@onready var overlay:      ColorRect     = $Overlay
+@onready var grid: GridContainer = $Panel/VBox/ScrollContainer/GridContainer
+@onready var title_label: Label = $Panel/VBox/Header/TitleLabel
+@onready var close_button: Button = $Panel/VBox/Header/CloseButton
+@onready var overlay: ColorRect = $Overlay
 
 
 func _ready() -> void:
@@ -23,6 +23,7 @@ func _ready() -> void:
 
 
 # ── Ouvrir avec la liste du rack ───────────────────────────────────────────
+
 
 func open(available_ingredients: Array[String], rack_label: String = "Étagère") -> void:
 	title_label.text = rack_label
@@ -38,6 +39,7 @@ func close() -> void:
 
 # ── Fermer sur clic overlay ou Escape ─────────────────────────────────────
 
+
 func _on_overlay_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		close()
@@ -50,6 +52,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # ── Construire la grille depuis RecipeLoader ───────────────────────────────
 
+
 func _build_grid(ingredients: Array[String]) -> void:
 	for child in grid.get_children():
 		child.queue_free()
@@ -57,7 +60,7 @@ func _build_grid(ingredients: Array[String]) -> void:
 	for ing_id in ingredients:
 		# Récupération des données depuis le JSON via RecipeLoader
 		var label_text: String = RecipeLoader.get_ingredient_label(ing_id)
-		var emoji: String      = RecipeLoader.get_ingredient_emoji(ing_id)
+		var emoji: String = RecipeLoader.get_ingredient_emoji(ing_id)
 		grid.add_child(_make_ingredient_button(ing_id, label_text, emoji))
 
 
