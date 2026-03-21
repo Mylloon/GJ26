@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://interaction_popup"]
+[gd_scene format=4]
 
-[ext_resource type="Script" path="res://scripts/ui/interaction_popup.gd" id="1_popup"]
+[ext_resource type="Script" uid="uid://bddgbtqrkxxuw" path="res://scripts/game_recipe/ui/interaction_popup.gd" id="1_popup"]
 
 [node name="InteractionPopup" type="CanvasLayer"]
 layer = 6
