@@ -6,4 +6,4 @@ setup-git-hooks:
 	cp githooks/pre-commit .git/hooks
 
 format-gdfiles:
-	gdformat $(wildcard **/*.gd)
+	gdformat $(wildcard **/**/*.gd) $(wildcard **/*.gd)
