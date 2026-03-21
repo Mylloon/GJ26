@@ -20,3 +20,9 @@ mesh = SubResource("CapsuleMesh_g2els")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=116432727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0714253, 0.007972121)
 shape = SubResource("CapsuleShape3D_qhqgy")
+
+[node name="InteractionZone" type="Area3D" parent="CharacterBody3D" unique_id=1753538752]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/InteractionZone" unique_id=2739635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1428506, 0.015944242)
+shape = SubResource("CapsuleShape3D_qhqgy")

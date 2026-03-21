@@ -13,7 +13,5 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	print("Player pos: ", player.global_position)
-	print("Camera pos: ", camera.global_position)
 	var desired = player.global_position + cam_offset
 	camera.global_position = camera.global_position.lerp(desired, smoothing * delta)

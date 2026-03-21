@@ -19,7 +19,7 @@
       "label": "Mélanger",
       "description": "Mélanger le contenu du bol au batteur",
       "icone": "🌀",
-      "poste": "MIXER"
+      "poste": "BOWL"
     },
     {
       "id": "mettre_au_four",
@@ -47,21 +47,21 @@
       "label": "Chauffer le lait",
       "description": "Faire chauffer le lait à la buse vapeur",
       "icone": "♨️",
-      "poste": "MILK_STEAMER"
+      "poste": "ESPRESSO_STEAMER"
     },
     {
       "id": "mousser_lait",
       "label": "Mousser le lait",
       "description": "Faire mousser le lait à la buse vapeur",
       "icone": "☁️",
-      "poste": "MILK_STEAMER"
+      "poste": "ESPRESSO_STEAMER"
     },
     {
       "id": "faire_expresso",
       "label": "Faire un expresso",
       "description": "Lancer l'extraction du café",
       "icone": "☕",
-      "poste": "ESPRESSO"
+      "poste": "ESPRESSO_STEAMER"
     },
     {
       "id": "verser",
@@ -76,6 +76,13 @@
       "description": "Disposer et garnir dans l'assiette",
       "icone": "🍽️",
       "poste": "PLATE"
+    },
+    {
+      "id": "jeter",
+      "label": "Jeter",
+      "description": "Jeter l'ingrédient à la poubelle",
+      "icone": "🗑️",
+      "poste": "TRASH"
     }
   ]
 }

@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://hud_held_item"]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_hud")
+
+[node name="HeldItemPanel" type="Control" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -160.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="SlotBg" type="PanelContainer" parent="HeldItemPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="HeldItemPanel/SlotBg"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SlotLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
+layout_mode = 2
+text = "EN MAIN"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 10
+
+[node name="EmojiLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
+name = "EmojiLabel"
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 42
+
+[node name="IngredientLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
+name = "IngredientLabel"
+layout_mode = 2
+text = "—"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://c2jiuend8saxl"]
+
+[node name="IngredientMenu" type="CanvasLayer" unique_id=1086753569]
+layer = 10
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1827686418]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1692829803]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -260.0
+offset_right = 220.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1239464367]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="Panel/VBox" unique_id=1817807593]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/VBox/Header" unique_id=313947885]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Choisir un ingrédient"
+
+[node name="CloseButton" type="Button" parent="Panel/VBox/Header" unique_id=810136345]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "✕"
+flat = true
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBox" unique_id=1152309275]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBox" unique_id=1952817170]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBox/ScrollContainer" unique_id=317857748]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 3
