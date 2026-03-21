@@ -39,7 +39,6 @@ signal action_completed(station_id: String, action_id: String, produced: String)
 func _ready() -> void:
 	add_to_group("interactable")
 	add_to_group("station")
-	print("[StationBase] %s prêt — groupes : %s" % [name, get_groups()])
 	if prompt_label:
 		prompt_label.visible = false
 

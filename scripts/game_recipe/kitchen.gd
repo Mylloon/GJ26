@@ -41,6 +41,7 @@ func _connect_nodes() -> void:
 	# GameManager → HUD recette
 	GameManager.recipe_loaded.connect(hud_recipe.on_recipe_loaded)
 	GameManager.step_validated.connect(hud_recipe.on_step_validated)
+	GameManager.step_ingredient_added.connect(hud_recipe.on_step_ingredient_added)
 	GameManager.step_reset.connect(hud_recipe.on_step_reset)
 	GameManager.recipe_completed.connect(_on_recipe_completed)
 

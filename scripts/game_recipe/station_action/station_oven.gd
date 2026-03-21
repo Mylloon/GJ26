@@ -4,7 +4,7 @@
 # station_oven.gd — Four (mettre_au_four)
 # ═══════════════════════════════════════════════════════════════════
 
-class_name StationOven
+class_name sq
 extends StationBase
 
 

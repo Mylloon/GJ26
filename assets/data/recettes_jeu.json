@@ -76,34 +76,20 @@
       "etapes": [
         {
           "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "pépites_chocolat"],
           "action": "mettre_dans_bol",
           "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "note": "Mettre beurre, sucre, oeufs, farine, levure et les pépites_chocolat dans le bol"
         },
         {
           "ordre": 2,
-          "ingredients": ["oeufs", "farine", "levure"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter oeufs, farine et levure"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["pépites_chocolat"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les pépites de chocolat"
-        },
-        {
-          "ordre": 4,
           "ingredients": [],
           "action": "mélanger",
           "poste": "BOWL",
           "note": "Mélanger jusqu'à obtenir une pâte homogène"
         },
         {
-          "ordre": 5,
+          "ordre": 3,
           "ingredients": [],
           "action": "mettre_au_four",
           "poste": "OVEN",
@@ -119,34 +105,20 @@
       "etapes": [
         {
           "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "matcha"],
           "action": "mettre_dans_bol",
           "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "note": "Mettre beurre, sucre, oeufs, farine, levure et le matcha dans le bol"
         },
         {
           "ordre": 2,
-          "ingredients": ["oeufs", "farine", "levure"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter oeufs, farine et levure"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["matcha"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter le matcha en poudre"
-        },
-        {
-          "ordre": 4,
           "ingredients": [],
           "action": "mélanger",
           "poste": "BOWL",
           "note": "Mélanger jusqu'à obtenir une pâte homogène"
         },
         {
-          "ordre": 5,
+          "ordre": 3,
           "ingredients": [],
           "action": "mettre_au_four",
           "poste": "OVEN",
@@ -162,34 +134,20 @@
       "etapes": [
         {
           "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "amandes"],
           "action": "mettre_dans_bol",
           "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "note": "Mettre beurre, sucre, oeufs, farine, levure et de l'amandes dans le bol"
         },
         {
           "ordre": 2,
-          "ingredients": ["oeufs", "farine", "levure"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter oeufs, farine et levure"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["amandes"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les amandes concassées"
-        },
-        {
-          "ordre": 4,
           "ingredients": [],
           "action": "mélanger",
           "poste": "BOWL",
           "note": "Mélanger jusqu'à obtenir une pâte homogène"
         },
         {
-          "ordre": 5,
+          "ordre": 3,
           "ingredients": [],
           "action": "mettre_au_four",
           "poste": "OVEN",
@@ -203,341 +161,97 @@
       "categorie": "pâtisserie",
       "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["chocolat"],
-          "action": "couper",
-          "poste": "CUTTING_BOARD",
-          "note": "Couper le chocolat en morceaux"
-        },
+        { "ordre": 1, "ingredients": ["chocolat"], "action": "couper", "poste": "CUTTING_BOARD" },
         {
           "ordre": 2,
-          "ingredients": ["chocolat", "beurre"],
+          "ingredients": ["chocolat", "beurre", "oeufs", "sucre", "farine", "levure"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre le chocolat coupé et le beurre dans le bol"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 3,
-          "ingredients": ["oeufs", "sucre"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs et le sucre"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["farine", "levure"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter la farine et la levure"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner le gâteau"
-        }
+        { "ordre": 3, "ingredients": [], "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 4, "ingredients": [], "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "gateau_vanille",
-      "label": "Gâteau vanille",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
         {
           "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "vanille", "farine", "levure", "lait"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 2,
-          "ingredients": ["oeufs", "vanille"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs et la vanille"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["farine", "levure", "lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter la farine, la levure et le lait"
-        },
-        {
-          "ordre": 4,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner le gâteau"
-        }
+        { "ordre": 2, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 3, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "gateau_fraise",
-      "label": "Gâteau fraise",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["fraise"],
-          "action": "couper",
-          "poste": "CUTTING_BOARD",
-          "note": "Couper les fraises en morceaux"
-        },
+        { "ordre": 1, "ingredients": ["fraise"], "action": "couper", "poste": "CUTTING_BOARD" },
         {
           "ordre": 2,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "fraise"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 3,
-          "ingredients": ["oeufs", "farine", "levure"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter oeufs, farine et levure"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["fraise"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Incorporer les fraises coupées"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger délicatement"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner le gâteau"
-        }
+        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "cupcake_chocolat",
-      "label": "Cupcake chocolat",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
-        },
+        { "ordre": 1, "ingredients": ["chocolat"], "action": "couper", "poste": "CUTTING_BOARD" },
         {
           "ordre": 2,
-          "ingredients": ["oeufs"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "chocolat", "lait"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 3,
-          "ingredients": ["farine", "levure", "sel"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter farine, levure et sel"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["chocolat", "lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter le chocolat fondu et le lait"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner les cupcakes"
-        }
+        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "cupcake_vanille",
-      "label": "Cupcake vanille",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
         {
           "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "vanille", "lait"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 2,
-          "ingredients": ["oeufs"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["farine", "levure", "sel"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter farine, levure et sel"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["vanille", "lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter la vanille et le lait"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner les cupcakes"
-        }
+        { "ordre": 2, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 3, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "cupcake_fraise",
-      "label": "Cupcake fraise",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
-        },
+        { "ordre": 1, "ingredients": ["fraise"], "action": "couper", "poste": "CUTTING_BOARD" },
         {
           "ordre": 2,
-          "ingredients": ["oeufs"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "fraise", "lait"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 3,
-          "ingredients": ["farine", "levure", "sel"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter farine, levure et sel"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["fraise", "lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter la fraise mixée et le lait"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner les cupcakes"
-        }
+        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
       "id": "cupcake_mangue",
-      "label": "Cupcake mangue",
-      "categorie": "pâtisserie",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["beurre", "sucre"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre beurre et sucre dans le bol"
-        },
+        { "ordre": 1, "ingredients": ["mangue"], "action": "couper", "poste": "CUTTING_BOARD" },
         {
           "ordre": 2,
-          "ingredients": ["oeufs"],
+          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "mangue", "lait"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter les oeufs"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 3,
-          "ingredients": ["farine", "levure", "sel"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter farine, levure et sel"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["mangue", "lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter la mangue mixée et le lait"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Mélanger jusqu'à obtenir une pâte lisse"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "mettre_au_four",
-          "poste": "OVEN",
-          "note": "Enfourner les cupcakes"
-        }
+        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
       ]
     },
     {
@@ -644,7 +358,7 @@
       "id": "expresso",
       "label": "Expresso",
       "categorie": "boisson",
-      "difficulte": "facile",
+      "difficulte": "difficile",
       "etapes": [
         {
           "ordre": 1,
@@ -666,7 +380,7 @@
       "id": "latte",
       "label": "Latte",
       "categorie": "boisson",
-      "difficulte": "facile",
+      "difficulte": "difficile",
       "etapes": [
         {
           "ordre": 1,
@@ -695,7 +409,7 @@
       "id": "latte_vanille",
       "label": "Latte vanille",
       "categorie": "boisson",
-      "difficulte": "facile",
+      "difficulte": "difficile",
       "etapes": [
         {
           "ordre": 1,
@@ -724,7 +438,7 @@
       "id": "latte_fraise",
       "label": "Latte fraise",
       "categorie": "boisson",
-      "difficulte": "facile",
+      "difficulte": "difficile",
       "etapes": [
         {
           "ordre": 1,
@@ -753,7 +467,7 @@
       "id": "latte_mangue",
       "label": "Latte mangue",
       "categorie": "boisson",
-      "difficulte": "facile",
+      "difficulte": "difficile",
       "etapes": [
         {
           "ordre": 1,
@@ -822,153 +536,33 @@
       ]
     },
     {
-      "id": "matcha_vanille",
-      "label": "Matcha vanille",
-      "categorie": "boisson",
-      "difficulte": "moyen",
-      "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["matcha"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre la poudre de matcha dans le bol"
-        },
-        {
-          "ordre": 2,
-          "ingredients": ["lait"],
-          "action": "chauffer_lait",
-          "poste": "ESPRESSO_STEAMER",
-          "note": "Chauffer le lait à la buse vapeur"
-        },
-        {
-          "ordre": 3,
-          "ingredients": ["lait"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Verser le lait chaud sur le matcha"
-        },
-        {
-          "ordre": 4,
-          "ingredients": ["sirop_vanille"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter le sirop vanille"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Fouetter jusqu'à dissolution complète"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "verser",
-          "poste": "CUP",
-          "note": "Verser dans la tasse"
-        }
-      ]
-    },
-    {
       "id": "matcha_fraise",
-      "label": "Matcha fraise",
-      "categorie": "boisson",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["matcha"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre la poudre de matcha dans le bol"
-        },
-        {
-          "ordre": 2,
-          "ingredients": ["lait"],
-          "action": "chauffer_lait",
-          "poste": "ESPRESSO_STEAMER",
-          "note": "Chauffer le lait à la buse vapeur"
-        },
+        { "ordre": 1, "ingredients": ["matcha"], "action": "mettre_dans_bol", "poste": "BOWL" },
+        { "ordre": 2, "action": "chauffer_lait", "poste": "ESPRESSO_STEAMER" },
         {
           "ordre": 3,
-          "ingredients": ["lait"],
+          "ingredients": ["lait", "sirop_fraise"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Verser le lait chaud sur le matcha"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 4,
-          "ingredients": ["sirop_fraise"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter le sirop fraise"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Fouetter jusqu'à dissolution complète"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "verser",
-          "poste": "CUP",
-          "note": "Verser dans la tasse"
-        }
+        { "ordre": 4, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 5, "action": "verser", "poste": "CUP" }
       ]
     },
     {
       "id": "matcha_mangue",
-      "label": "Matcha mangue",
-      "categorie": "boisson",
-      "difficulte": "moyen",
       "etapes": [
-        {
-          "ordre": 1,
-          "ingredients": ["matcha"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Mettre la poudre de matcha dans le bol"
-        },
-        {
-          "ordre": 2,
-          "ingredients": ["lait"],
-          "action": "chauffer_lait",
-          "poste": "ESPRESSO_STEAMER",
-          "note": "Chauffer le lait à la buse vapeur"
-        },
+        { "ordre": 1, "ingredients": ["matcha"], "action": "mettre_dans_bol", "poste": "BOWL" },
+        { "ordre": 2, "action": "chauffer_lait", "poste": "ESPRESSO_STEAMER" },
         {
           "ordre": 3,
-          "ingredients": ["lait"],
+          "ingredients": ["lait", "sirop_mangue"],
           "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Verser le lait chaud sur le matcha"
+          "poste": "BOWL"
         },
-        {
-          "ordre": 4,
-          "ingredients": ["sirop_mangue"],
-          "action": "mettre_dans_bol",
-          "poste": "BOWL",
-          "note": "Ajouter le sirop mangue"
-        },
-        {
-          "ordre": 5,
-          "ingredients": [],
-          "action": "mélanger",
-          "poste": "BOWL",
-          "note": "Fouetter jusqu'à dissolution complète"
-        },
-        {
-          "ordre": 6,
-          "ingredients": [],
-          "action": "verser",
-          "poste": "CUP",
-          "note": "Verser dans la tasse"
-        }
+        { "ordre": 4, "action": "mélanger", "poste": "BOWL" },
+        { "ordre": 5, "action": "verser", "poste": "CUP" }
       ]
     }
   ]

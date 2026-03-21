@@ -29,7 +29,7 @@ var nearby_interactable: Node = null
 # ── Signaux vers le GameManager ────────────────────────────────────────────
 signal action_performed(action_id: String, ingredient: String, station_id: String)
 signal ingredient_picked_up(ingredient_id: String)
-signal ingredient_dropped
+signal ingredient_dropped()
 
 
 func _ready() -> void:
@@ -184,6 +184,9 @@ func _try_use_station(station: Node) -> void:
 	var consumed: bool = result.get("consumes_ingredient", false)
 	var produced: String = result.get("produces_ingredient", "")
 
+	# Capturer l'ingrédient AVANT de vider la main — le GameManager en a besoin
+	var ingredient_used: String = held_ingredient
+
 	if consumed and held_ingredient != "":
 		if held_ingredient_node:
 			held_ingredient_node.queue_free()
@@ -195,7 +198,7 @@ func _try_use_station(station: Node) -> void:
 		held_ingredient = produced
 		_update_held_display()
 
-	emit_signal("action_performed", action_id, held_ingredient, station_id)
+	emit_signal("action_performed", action_id, ingredient_used, station_id)
 	_show_feedback(result.get("message", "✓"))
 
 

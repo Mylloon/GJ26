@@ -10,6 +10,7 @@ extends Node
 # ── Signaux vers l'UI ──────────────────────────────────────────────────────
 signal recipe_loaded(recipe: Dictionary)
 signal step_validated(step_index: int, success: bool)
+signal step_ingredient_added(step_index: int, ingredient_id: String, remaining: int)
 signal step_reset()                          # raté → toutes les encoches effacées
 signal recipe_completed(recipe_id: String)
 signal recipe_failed(reason: String)
@@ -20,6 +21,9 @@ signal controls_inverted_changed(inverted: bool)
 var current_recipe: Dictionary = {}
 var expected_step_index: int = 0      # index de la prochaine étape à valider
 var controls_inverted: bool = false
+
+# Pour les étapes multi-ingrédients : ingrédients restant à apporter
+var _pending_ingredients: Array = []
 
 # ── Chaos ─────────────────────────────────────────────────────────────────
 @export var chaos_interval_min: float = 8.0
@@ -40,11 +44,13 @@ func _ready() -> void:
 	add_child(chaos_timer)
 """
 
+
 # ── Charger une recette ────────────────────────────────────────────────────
 
 func load_recipe(recipe: Dictionary) -> void:
 	current_recipe = recipe
 	expected_step_index = 0
+	_pending_ingredients.clear()
 	emit_signal("recipe_loaded", recipe)
 	# _schedule_next_chaos()
 
@@ -62,24 +68,40 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 		return
 
 	var expected_step: Dictionary = steps[expected_step_index]
+
+	# Initialiser _pending_ingredients au premier apport de l'étape
+	if _pending_ingredients.is_empty():
+		_pending_ingredients = expected_step.get("ingredients", []).duplicate()
+
+	print("[GM] action=%s | ingredient=%s | station=%s" % [action_id, ingredient, station_id])
+	print("[GM] expected action=%s | poste=%s | pending=%s" % [expected_step.get("action"), expected_step.get("poste"), _pending_ingredients])
+
 	var valid := _validate_step(expected_step, action_id, ingredient, station_id)
+	print("[GM] valid=%s" % valid)
 
 	emit_signal("step_validated", expected_step_index, valid)
 
 	if valid:
+		# Étape multi-ingrédients : attendre que tous soient apportés
+		if not _pending_ingredients.is_empty():
+			emit_signal("step_ingredient_added", expected_step_index, ingredient, _pending_ingredients.size())
+			return  # pas encore fini, on ne passe pas à la suivante
 		expected_step_index += 1
 		if expected_step_index >= steps.size():
 			_on_recipe_complete()
 	else:
+		_pending_ingredients.clear()
 		_on_wrong_step(action_id, station_id)
 
 
 # ── Validation d'une étape ─────────────────────────────────────────────────
+# Pour les étapes multi-ingrédients, on retire l'ingrédient de _pending_ingredients
+# au fur et à mesure. L'étape est validée quand la liste est vide.
 
 func _validate_step(step: Dictionary, action_id: String, ingredient: String, station_id: String) -> bool:
-	var expected_action: String  = step.get("action", "")
-	var expected_poste: String   = step.get("poste", "")
-	var expected_ings: Array     = step.get("ingredients", [])
+	var expected_action: String = step.get("action", "")
+	var expected_poste: String  = step.get("poste", "")
+	var expected_ings: Array    = step.get("ingredients", [])
 
 	# Vérifier action et poste
 	if action_id != expected_action:
@@ -87,11 +109,17 @@ func _validate_step(step: Dictionary, action_id: String, ingredient: String, sta
 	if station_id != expected_poste:
 		return false
 
-	# Vérifier ingrédient si l'étape en exige un
-	if expected_ings.size() > 0:
-		if ingredient not in expected_ings:
-			return false
+	# Étape sans ingrédient requis (ex: mélanger, enfourner) → valide directement
+	if expected_ings.is_empty():
+		_pending_ingredients.clear()
+		return true
 
+	# Étape avec ingrédients : vérifier que celui apporté est attendu
+	if ingredient not in _pending_ingredients:
+		return false
+
+	# Retirer l'ingrédient apporté de la liste d'attente
+	_pending_ingredients.erase(ingredient)
 	return true
 
 
@@ -99,9 +127,12 @@ func _validate_step(step: Dictionary, action_id: String, ingredient: String, sta
 
 func _on_recipe_complete() -> void:
 	emit_signal("recipe_completed", current_recipe.get("id", ""))
+	"""
 	chaos_timer.stop()
+	"""
 	current_recipe = {}
 	expected_step_index = 0
+	_pending_ingredients.clear()
 
 
 # ── Mauvaise étape → remise à zéro ────────────────────────────────────────
@@ -169,6 +200,7 @@ func get_progress() -> float:
 func reset() -> void:
 	current_recipe = {}
 	expected_step_index = 0
+	_pending_ingredients.clear()
 	controls_inverted = false
 	chaos_timer.stop()
 	if player:

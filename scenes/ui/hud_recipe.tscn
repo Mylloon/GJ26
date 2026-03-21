@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://hud_recipe"]
+[gd_scene format=4]
 
-[ext_resource type="Script" path="res://scripts/ui/hud_recipe.gd" id="1_hud_recipe"]
+[ext_resource type="Script" uid="uid://daresccx7do58" path="res://scripts/game_recipe/ui/hud_recipe.gd" id="1_hud_recipe"]
 
 [node name="HUDRecipe" type="CanvasLayer"]
 layer = 5

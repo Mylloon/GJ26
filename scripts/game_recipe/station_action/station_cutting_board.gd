@@ -24,7 +24,6 @@ func _ready() -> void:
 
 
 func try_interact(ingredient_in_hand: String) -> Dictionary:
-	print("cuuut")
 	if is_busy:
 		return { "success": false, "message": "En cours…" }
 

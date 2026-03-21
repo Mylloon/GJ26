@@ -36,10 +36,7 @@ func _ready() -> void:
 # ── Connexion au joueur ────────────────────────────────────────────────────
 
 func set_player(player: Node) -> void:
-	print("iciiii")
-	print("player : ",player)
 	if _player:
-		print("decconnecteeeed")
 		if _player.ingredient_picked_up.is_connected(_on_ingredient_picked_up):
 			_player.ingredient_picked_up.disconnect(_on_ingredient_picked_up)
 		if _player.ingredient_dropped.is_connected(_on_ingredient_dropped):
@@ -48,7 +45,6 @@ func set_player(player: Node) -> void:
 	_player = player
 
 	if _player:
-		print("connected")
 		_player.ingredient_picked_up.connect(_on_ingredient_picked_up)
 		_player.ingredient_dropped.connect(_on_ingredient_dropped)
 		# Synchroniser l'état actuel si le joueur tient déjà quelque chose
@@ -59,7 +55,6 @@ func set_player(player: Node) -> void:
 # ── Callbacks signaux joueur ───────────────────────────────────────────────
 
 func _on_ingredient_picked_up(ingredient_id: String) -> void:
-	print("dans la maaaaaaaaain", ingredient_id)
 	var label_text: String = RecipeLoader.get_ingredient_label(ingredient_id)
 	var emoji: String      = RecipeLoader.get_ingredient_emoji(ingredient_id)
 	emoji_label.text      = emoji

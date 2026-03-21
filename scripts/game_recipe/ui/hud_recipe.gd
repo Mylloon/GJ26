@@ -65,6 +65,44 @@ func on_step_validated(step_index: int, success: bool) -> void:
 		# (si step_reset arrive avant le timer, pas grave — idempotent)
 
 
+func on_step_ingredient_added(step_index: int, ingredient_id: String, remaining: int) -> void:
+	if step_index >= _step_rows.size():
+		return
+	var row := _step_rows[step_index]
+
+	# Debug : afficher l'arbre du row pour trouver le bon chemin
+	print("[HUD] Recherche Ing_%s dans row %s" % [ingredient_id, row.name])
+	_print_tree(row, "  ")
+
+	# Chercher le label en parcourant récursivement
+	var ing_lbl := _find_ingredient_label(row, "Ing_" + ingredient_id)
+	if ing_lbl:
+		ing_lbl.add_theme_color_override("font_color", Color(0.4, 0.6, 0.42, 1.0))
+		ing_lbl.text = "✓ " + ing_lbl.text
+	else:
+		print("[HUD] Label Ing_%s introuvable !" % ingredient_id)
+
+	var icon := row.get_node("Notch/Icon") as Label
+	icon.text = "+%d" % remaining
+	icon.add_theme_color_override("font_color", Color(1.0, 0.78, 0.2, 1.0))
+
+
+func _find_ingredient_label(node: Node, target_name: String) -> Label:
+	if node.name == target_name and node is Label:
+		return node as Label
+	for child in node.get_children():
+		var result := _find_ingredient_label(child, target_name)
+		if result:
+			return result
+	return null
+
+
+func _print_tree(node: Node, indent: String) -> void:
+	print("%s%s (%s)" % [indent, node.name, node.get_class()])
+	for child in node.get_children():
+		_print_tree(child, indent + "  ")
+
+
 func on_step_reset() -> void:
 	_current_index = 0
 	for i in _step_rows.size():
@@ -123,13 +161,18 @@ func _make_step_row(step: Dictionary) -> Control:
 
 	var ings: Array = step.get("ingredients", [])
 	if ings.size() > 0:
-		var ing_names := ings.map(func(id): return RecipeLoader.get_ingredient_label(id))
-		var ing_lbl := Label.new()
-		ing_lbl.name = "IngredientsLabel"
-		ing_lbl.text = "  " + "  +  ".join(ing_names)
-		ing_lbl.add_theme_font_size_override("font_size", 10)
-		ing_lbl.add_theme_color_override("font_color", Color(COLOR_TEXT_PENDING, 0.7))
-		content.add_child(ing_lbl)
+		var ing_row := HBoxContainer.new()
+		ing_row.name = "IngredientsRow"
+		ing_row.add_theme_constant_override("separation", 4)
+		for ing_id in ings:
+			var lbl := Label.new()
+			# Nom unique pour retrouver ce label plus tard
+			lbl.name = "Ing_" + ing_id
+			lbl.text = RecipeLoader.get_ingredient_label(ing_id)
+			lbl.add_theme_font_size_override("font_size", 10)
+			lbl.add_theme_color_override("font_color", Color(COLOR_TEXT_PENDING, 0.75))
+			ing_row.add_child(lbl)
+		content.add_child(ing_row)
 
 	content.add_child(action_lbl)
 
@@ -236,3 +279,19 @@ func _build_panel_style() -> void:
 	style.content_margin_bottom = 12.0
 	panel.add_theme_stylebox_override("panel", style)
 	recipe_title.add_theme_color_override("font_color", COLOR_TITLE)
+
+
+func _debug_print_children(node: Node, depth: int) -> void:
+	print("%s%s (%s)" % ["  ".repeat(depth), node.name, node.get_class()])
+	for child in node.get_children():
+		_debug_print_children(child, depth + 1)
+
+
+func _find_node_by_name(node: Node, target: String) -> Node:
+	if node.name == target:
+		return node
+	for child in node.get_children():
+		var result := _find_node_by_name(child, target)
+		if result:
+			return result
+	return null
