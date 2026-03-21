@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d0rfb6pm3biub"]
 
+[ext_resource type="Script" uid="uid://ciotf5mjqxtle" path="res://scripts/menu.gd" id="1_yqeox"]
+
 [sub_resource type="Theme" id="Theme_4h3mk"]
 
 [node name="Menu" type="Control" unique_id=948714472]
@@ -9,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yqeox")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=435507689]
 layout_mode = 1
@@ -41,3 +44,5 @@ text = "Paramètres"
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1746294328]
 layout_mode = 2
 text = "Quitter"
+
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
