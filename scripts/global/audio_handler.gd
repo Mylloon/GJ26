@@ -14,6 +14,7 @@ func _ready() -> void:
 
 	AudioServer.add_bus_effect(index, filter, pause_filter)
 
+
 ## Play an audio stream.[br][br]
 ## Example usage: When the node enters the scene tree for the first time.
 func _play_music(music: AudioStream) -> void:
@@ -25,25 +26,31 @@ func _play_music(music: AudioStream) -> void:
 	if !playing:
 		play()
 
+
 func play_main_music() -> void:
 	# _play_music(main_music)
 	pass
+
 
 func play_music_menu() -> void:
 	# _play_music(menu_music)
 	pass
 
+
 ## Change the volume db
 func set_volume(value: float) -> void:
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+
 
 ## Get the volume db
 func get_volume() -> float:
 	return db_to_linear(AudioServer.get_bus_volume_db(index))
 
+
 ## Disable a sound filter
 func disable_pause_filter() -> void:
 	AudioServer.set_bus_effect_enabled(index, pause_filter, false)
+
 
 ## Enable a sound filter
 func enable_pause_filter() -> void:
