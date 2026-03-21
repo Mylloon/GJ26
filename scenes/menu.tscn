@@ -19,6 +19,7 @@ offset_bottom = 62.0
 grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 45
 text = "NOM"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
