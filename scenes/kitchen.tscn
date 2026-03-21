@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bopli7nsqsjlf" path="res://scenes/player.tscn" id="1_7ilqw"]
 [ext_resource type="Script" uid="uid://b73ajpuxa6xqx" path="res://scripts/camera_3d.gd" id="2_ktc20"]
-[ext_resource type="Shader" uid="uid://c6qhkhar3xobg" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
-[ext_resource type="PackedScene" uid="uid://cbdc5taksqq0r" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/wall.fbx" id="3_2b6py"]
+[ext_resource type="Shader" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://c03x6lki4xy2i" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_innercorner_backsplash.fbx" id="5_bs8bs"]
 [ext_resource type="PackedScene" uid="uid://wylyxk3riht6" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_outercorner.fbx" id="6_88wuv"]
 [ext_resource type="PackedScene" uid="uid://blj38vp83ma16" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_outercorner_backsplash.fbx" id="7_acu1m"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dx05nlsjrjrhg" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_B.fbx" id="12_f125y"]
 [ext_resource type="PackedScene" uid="uid://cns14qe6u4yjq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_B_backsplash.fbx" id="13_n55t6"]
 [ext_resource type="PackedScene" uid="uid://bcvqe444l56tb" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_decorated.fbx" id="14_fr5pv"]
+[ext_resource type="MeshLibrary" uid="uid://cceg8jx2epmvq" path="res://assets/models/ML.tres" id="14_ktc20"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]
 
@@ -158,62 +158,23 @@ shape = SubResource("BoxShape3D_bems3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007903099, -2.3841858e-07, 0.009621501)
 mesh = SubResource("BoxMesh_v3ycp")
 
-[node name="Wall" type="StaticBody3D" parent="Interior/Ground" unique_id=1787055042]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.3970242, -1.5, 1.4564314)
-
-[node name="wallX" type="Node3D" parent="Interior/Ground/Wall" unique_id=779156949]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3599205, 0, -4.3442993)
-
-[node name="wall" parent="Interior/Ground/Wall/wallX" unique_id=2021332971 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.48, 1, 0)
-
-[node name="wall2" parent="Interior/Ground/Wall/wallX" unique_id=977117003 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.5378633, 1, 0)
-
-[node name="wall3" parent="Interior/Ground/Wall/wallX" unique_id=1062441015 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.5928674, 1, 0)
-
-[node name="wall4" parent="Interior/Ground/Wall/wallX" unique_id=144370496 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.6468316, 1, 0)
-
-[node name="wall5" parent="Interior/Ground/Wall/wallX" unique_id=604002837 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.7039063, 1, 0)
-
-[node name="wall6" parent="Interior/Ground/Wall/wallX" unique_id=95809362 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.23823047, 1, 0)
-
-[node name="wall7" parent="Interior/Ground/Wall/wallX" unique_id=524064420 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.1832263, 1, 0)
-
-[node name="wall8" parent="Interior/Ground/Wall/wallX" unique_id=1580719196 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.129262, 1, 0)
-
-[node name="wallX2" type="Node3D" parent="Interior/Ground/Wall" unique_id=98688641]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.000293, 0, -1.728997)
-
-[node name="wall" parent="Interior/Ground/Wall/wallX2" unique_id=99725015 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -4.48, 1, 0)
-
-[node name="wall2" parent="Interior/Ground/Wall/wallX2" unique_id=773578693 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -3.5378633, 1, 0)
-
-[node name="wall3" parent="Interior/Ground/Wall/wallX2" unique_id=1519363487 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.5928674, 1, 0)
-
-[node name="wall4" parent="Interior/Ground/Wall/wallX2" unique_id=126536025 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -1.6468316, 1, 0)
-
-[node name="wall5" parent="Interior/Ground/Wall/wallX2" unique_id=1540806981 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.7039063, 1, 0)
-
-[node name="wall6" parent="Interior/Ground/Wall/wallX2" unique_id=305260803 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.23823047, 1, 0)
-
-[node name="wall7" parent="Interior/Ground/Wall/wallX2" unique_id=1854719952 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 1.1832263, 1, 0)
-
-[node name="wall8" parent="Interior/Ground/Wall/wallX2" unique_id=335990744 instance=ExtResource("3_2b6py")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 2.129262, 1, 0)
-
 [node name="CameraRig" type="Node3D" parent="." unique_id=68610899]
 script = ExtResource("2_ktc20")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=2134391960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.035, -0.51, 1.985)
+mesh_library = ExtResource("14_ktc20")
+cell_size = Vector3(3.8, 0.005, 3.8)
+cell_scale = 100.0
+data = {
+"cells": PackedInt32Array(65532, 65531, 786568, 65533, 65531, 786568, 65534, 65531, 786568, 65535, 65531, 786568, 0, 65531, 786568, 1, 65531, 786568, 2, 65531, 786568, 3, 65531, 786568)
+}
+
+[node name="GridMap2" type="GridMap" parent="." unique_id=1158418858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.945, -0.52, 3.97)
+mesh_library = ExtResource("14_ktc20")
+cell_size = Vector3(3.8, 0.005, 3.8)
+cell_scale = 100.0
+data = {
+"cells": PackedInt32Array(4, 65531, 1114248, 4, 65532, 1114248, 4, 65533, 1114248, 4, 65534, 1114248, 4, 65535, 1114248, 4, 0, 1114248, 4, 1, 1114248, 4, 2, 1114248)
+}
