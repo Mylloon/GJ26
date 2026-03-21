@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://c1i7e6t64xsx"]
+
+[ext_resource type="Script" uid="uid://ce4mcfrv17bgs" path="res://scripts/settings.gd" id="1_5p8wc"]
+
+[node name="Settings" type="Control" unique_id=596543664]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1100355398]
+layout_mode = 0
+offset_top = 123.0
+offset_right = 1280.0
+offset_bottom = 198.0
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1818170361]
+layout_mode = 2
+theme_override_constants/v_separation = 121
+script = ExtResource("1_5p8wc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/GridContainer" unique_id=1571073250]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 41
+text = "Paramètres"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Volume" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=2112902586]
+layout_mode = 2
+theme_override_constants/separation = 33
+
+[node name="Name" type="RichTextLabel" parent="MarginContainer/GridContainer/Volume" unique_id=1561352153]
+layout_mode = 2
+text = "Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/GridContainer/Volume" unique_id=2087779943]
+layout_mode = 2
+size_flags_horizontal = 3
+rounded = true
+
+[node name="Info" type="RichTextLabel" parent="MarginContainer/GridContainer/Volume" unique_id=1796896848]
+layout_mode = 2
+fit_content = true
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="MarginContainer/GridContainer" unique_id=147436388]
+layout_mode = 2
+text = "Retour"
+
+[connection signal="drag_ended" from="MarginContainer/GridContainer/Volume/HSlider" to="MarginContainer/GridContainer" method="_on_volume_slider_drag_ended"]
+[connection signal="value_changed" from="MarginContainer/GridContainer/Volume/HSlider" to="MarginContainer/GridContainer" method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Button" to="MarginContainer/GridContainer" method="_on_return_button_pressed"]

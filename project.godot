@@ -16,6 +16,12 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.068798296, 0.06879827, 0.068798244, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioHandler="*uid://dj1bs511b4hvr"
+ConfigHandler="*uid://bq10ig1owopo4"
+Context="*uid://j6k2b036hhng"
+
 [display]
 
 window/size/viewport_width=1280
