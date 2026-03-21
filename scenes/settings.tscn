@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c1i7e6t64xsx"]
 
 [ext_resource type="Script" uid="uid://ce4mcfrv17bgs" path="res://scripts/settings.gd" id="1_5p8wc"]
+[ext_resource type="Texture2D" uid="uid://dkinwnm8upau7" path="res://assets/EmptyBottle.png" id="2_6wm04"]
+[ext_resource type="Texture2D" uid="uid://cf4emk5bblm4p" path="res://assets/FilledWithTop.png" id="3_f4mfi"]
 
 [node name="Settings" type="Control" unique_id=596543664]
 layout_mode = 3
@@ -19,12 +21,12 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1818170361]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1853206444]
 layout_mode = 2
-theme_override_constants/v_separation = 121
+theme_override_constants/separation = 41
 script = ExtResource("1_5p8wc")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/GridContainer" unique_id=1571073250]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1571073250]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -34,30 +36,36 @@ fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="Volume" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=2112902586]
+[node name="Volume" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2114659850]
 layout_mode = 2
 theme_override_constants/separation = 33
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="MarginContainer/GridContainer/Volume" unique_id=1561352153]
+[node name="Name" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Volume" unique_id=1561352153]
 layout_mode = 2
 text = "Volume"
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/GridContainer/Volume" unique_id=2087779943]
+[node name="Slider" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/Volume" unique_id=120133547]
 layout_mode = 2
-size_flags_horizontal = 3
-rounded = true
+size_flags_horizontal = 6
+fill_mode = 3
+texture_over = ExtResource("2_6wm04")
+texture_progress = ExtResource("3_f4mfi")
+tint_under = Color(0.33524066, 0.4767549, 0.07990878, 1)
 
-[node name="Info" type="RichTextLabel" parent="MarginContainer/GridContainer/Volume" unique_id=1796896848]
+[node name="Info" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Volume" unique_id=1796896848]
 layout_mode = 2
 fit_content = true
 autowrap_mode = 0
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/GridContainer" unique_id=147436388]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=147436388]
 layout_mode = 2
 text = "Retour"
 
-[connection signal="drag_ended" from="MarginContainer/GridContainer/Volume/HSlider" to="MarginContainer/GridContainer" method="_on_volume_slider_drag_ended"]
-[connection signal="value_changed" from="MarginContainer/GridContainer/Volume/HSlider" to="MarginContainer/GridContainer" method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/GridContainer/Button" to="MarginContainer/GridContainer" method="_on_return_button_pressed"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/Volume/Slider" to="MarginContainer/VBoxContainer" method="_on_slider_gui_input"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume/Slider" to="MarginContainer/VBoxContainer" method="_on_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer" method="_on_return_button_pressed"]
