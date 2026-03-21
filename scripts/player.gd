@@ -22,6 +22,10 @@ var held_ingredient_node: Node = null
 
 var nearby_interactable: Node = null
 
+# Référence au popup d'interaction (InteractionPopup CanvasLayer)
+# Assigné depuis kitchen.gd : player.interaction_popup = $InteractionPopup
+var interaction_popup: Node = null
+
 # ── Signaux vers le GameManager ────────────────────────────────────────────
 signal action_performed(action_id: String, ingredient: String, station_id: String)
 signal ingredient_picked_up(ingredient_id: String)
@@ -44,10 +48,8 @@ func _physics_process(_delta):
 		inputs = -inputs
 
 	var direction = (
-		(transform.basis * Vector3(inputs.x, 0, inputs.y))
-		. rotated(Vector3.UP, camera_rotation.y)
-		. normalized()
-	)
+		transform.basis * Vector3(inputs.x, 0, inputs.y)
+	).rotated(Vector3.UP, camera_rotation.y).normalized()
 
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -64,41 +66,53 @@ func _physics_process(_delta):
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		_try_interact()
-
+	"""
+	if event.is_action_pressed("drop"):
+		drop_ingredient()
+"""
 
 # ── Détection de zone ──────────────────────────────────────────────────────
 
 func _on_body_entered_zone(body: Node) -> void:
 	if body.is_in_group("interactable"):
 		nearby_interactable = body
-		body.show_prompt(true)
+		_show_interaction_popup(body)
 
 
 func _on_body_exited_zone(body: Node) -> void:
 	if body == nearby_interactable:
-		body.show_prompt(false)
 		nearby_interactable = null
+		_hide_interaction_popup()
 
 
 func _on_area_entered_zone(area: Area3D) -> void:
 	var parent := area.get_parent()
 	if parent.is_in_group("interactable"):
 		nearby_interactable = parent
-		parent.show_prompt(true)
+		_show_interaction_popup(parent)
 
 
 func _on_area_exited_zone(area: Area3D) -> void:
 	var parent := area.get_parent()
 	if parent == nearby_interactable:
-		parent.show_prompt(false)
 		nearby_interactable = null
+		_hide_interaction_popup()
+
+
+func _show_interaction_popup(station: Node) -> void:
+	if interaction_popup:
+		interaction_popup.show_for_station(station)
+
+
+func _hide_interaction_popup() -> void:
+	if interaction_popup:
+		interaction_popup.hide_popup()
 
 
 # ── Interaction principale ─────────────────────────────────────────────────
 
 func _try_interact() -> void:
 	if nearby_interactable == null:
-		print("nothing")
 		return
 
 	# Tous les interactables sont désormais des stations (dont StationIngredientRack)
@@ -114,6 +128,9 @@ func receive_ingredient(ingredient_id: String) -> void:
 	held_ingredient_node = null   # pas de node 3D associé, vient du menu
 	_update_held_display()
 	emit_signal("ingredient_picked_up", ingredient_id)
+	# Rafraîchir le hint du popup (l'ingrédient en main a changé)
+	if interaction_popup and nearby_interactable:
+		interaction_popup.show_for_station(nearby_interactable)
 
 
 # ── Poser l'ingrédient ─────────────────────────────────────────────────────
@@ -126,19 +143,23 @@ func drop_ingredient() -> void:
 	held_ingredient_node = null
 	_update_held_display()
 	emit_signal("ingredient_dropped")
+	# Rafraîchir le hint du popup
+	if interaction_popup and nearby_interactable:
+		interaction_popup.show_for_station(nearby_interactable)
 
 
 # ── Utiliser un poste ──────────────────────────────────────────────────────
 
 func _try_use_station(station: Node) -> void:
-	
-	print("interact press\n")
-	print("staaation : ", station)
-	print("main : ", held_ingredient)
 	var result: Dictionary = station.try_interact(held_ingredient)
 
 	if not result.get("success", false):
-		_show_feedback(result.get("message", "Impossible !"))
+		# "menu_opening" = le rack ouvre un menu, ce n'est pas une erreur
+		if result.get("reason", "") == "menu_opening":
+			return
+		var msg: String = result.get("message", "")
+		if msg != "":
+			_show_feedback(msg)
 		return
 
 	var action_id: String  = result.get("action_id", "")
@@ -146,10 +167,6 @@ func _try_use_station(station: Node) -> void:
 	var consumed: bool     = result.get("consumes_ingredient", false)
 	var produced: String   = result.get("produces_ingredient", "")
 
-	print("staaation ")
-	print("action_id : ", action_id)
-	print("consumed : ", consumed)
-	print("produced : ", produced)
 	if consumed and held_ingredient != "":
 		if held_ingredient_node:
 			held_ingredient_node.queue_free()

@@ -27,7 +27,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cceg8jx2epmvq" path="res://assets/models/ML.tres" id="25_mew3q"]
 [ext_resource type="PackedScene" uid="uid://c2jiuend8saxl" path="res://scenes/ingredient_menu.tscn" id="26_7mac6"]
 [ext_resource type="Script" uid="uid://cm1r7g6xnqmcf" path="res://scripts/game_recipe/ingredient_menu.gd" id="27_ygq2i"]
-[ext_resource type="PackedScene" path="res://scripts/game_recipe/ui/hud.tscn" id="28_6shrd"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="28_6shrd"]
 [ext_resource type="Script" uid="uid://c7tel8j82fve5" path="res://scripts/game_recipe/ui/hud.gd" id="29_lll1g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]

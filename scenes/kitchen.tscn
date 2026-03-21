@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bopli7nsqsjlf" path="res://scenes/player.tscn" id="1_7ilqw"]
 [ext_resource type="Script" uid="uid://b73ajpuxa6xqx" path="res://scripts/camera_3d.gd" id="2_ktc20"]
-[ext_resource type="Shader" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
+[ext_resource type="Shader" uid="uid://c6qhkhar3xobg" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://c03x6lki4xy2i" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_innercorner_backsplash.fbx" id="5_bs8bs"]
 [ext_resource type="PackedScene" uid="uid://blj38vp83ma16" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_outercorner_backsplash.fbx" id="7_acu1m"]
 [ext_resource type="PackedScene" uid="uid://272bc4bcs7pq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/crate_buns.fbx" id="8_1gswy"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://5lbuomcoslxd" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/extractorhood.fbx" id="16_n55t6"]
 [ext_resource type="Script" uid="uid://cm1r7g6xnqmcf" path="res://scripts/game_recipe/ingredient_menu.gd" id="17_acu1m"]
 [ext_resource type="PackedScene" uid="uid://keaog5v4tiyk" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencabinet_half.fbx" id="17_ls4fu"]
-[ext_resource type="PackedScene" path="res://scripts/game_recipe/ui/hud.tscn" id="18_k1cyo"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="18_k1cyo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]
 
