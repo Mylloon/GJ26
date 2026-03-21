@@ -33,6 +33,12 @@ func _ready() -> void:
 	interaction_zone.body_exited.connect(_on_body_exited_zone)
 	interaction_zone.area_entered.connect(_on_area_entered_zone)
 	interaction_zone.area_exited.connect(_on_area_exited_zone)
+	
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		var screenshot = get_viewport().get_texture().get_image()
+		Context.switch_scene("res://scenes/pause.tscn", ImageTexture.create_from_image(screenshot))
 
 
 # ── Mouvement ──────────────────────────────────────────────────────────────
