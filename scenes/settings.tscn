@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ce4mcfrv17bgs" path="res://scripts/settings.gd" id="1_5p8wc"]
 [ext_resource type="Texture2D" uid="uid://dkinwnm8upau7" path="res://assets/EmptyBottle.png" id="2_6wm04"]
 [ext_resource type="Texture2D" uid="uid://cf4emk5bblm4p" path="res://assets/FilledWithTop.png" id="3_f4mfi"]
+[ext_resource type="Texture2D" uid="uid://ngam6hhecmiv" path="res://assets/Top_Juice.png" id="4_f4mfi"]
 
 [node name="Settings" type="Control" unique_id=596543664]
 layout_mode = 3
@@ -55,6 +56,15 @@ fill_mode = 3
 texture_over = ExtResource("2_6wm04")
 texture_progress = ExtResource("3_f4mfi")
 tint_under = Color(0.33524066, 0.4767549, 0.07990878, 1)
+
+[node name="Top" type="TextureRect" parent="MarginContainer/VBoxContainer/Volume/Slider" unique_id=311866382]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -12.0
+offset_right = 109.0
+offset_bottom = 29.0
+texture = ExtResource("4_f4mfi")
+expand_mode = 2
 
 [node name="Info" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Volume" unique_id=1796896848]
 layout_mode = 2

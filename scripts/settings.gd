@@ -2,6 +2,7 @@ extends VBoxContainer
 
 @onready var volume_bar = $Volume/Slider
 @onready var volume_info = $Volume/Info
+@onready var volume_top_tex = $Volume/Slider/Top
 
 
 func _ready():
@@ -32,6 +33,10 @@ func _save_volume() -> void:
 
 func _update_info(value: float) -> void:
 	volume_info.set_text(str(value).pad_decimals(0) + "%")
+	
+	# Move top cap
+	var ratio = clampf(1.0 - value / 100.0, 0.04, 0.93) # INFO: dégeu les valeures hardcodées
+	volume_top_tex.position.y = ratio * volume_bar.size.y - volume_top_tex.size.y / 2.0
 
 func _on_return_button_pressed() -> void:
 	Context.return_to_previous()
