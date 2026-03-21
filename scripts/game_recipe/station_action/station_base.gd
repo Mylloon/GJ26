@@ -39,9 +39,9 @@ signal action_completed(station_id: String, action_id: String, produced: String)
 func _ready() -> void:
 	add_to_group("interactable")
 	add_to_group("station")
+	print("[StationBase] %s prêt — groupes : %s" % [name, get_groups()])
 	if prompt_label:
 		prompt_label.visible = false
-
 
 func _process(_delta: float) -> void:
 	if is_busy and progress_mesh:
@@ -50,9 +50,9 @@ func _process(_delta: float) -> void:
 
 # ── Interface appelée par le joueur ────────────────────────────────────────
 
-func show_prompt(show: bool) -> void:
+func show_prompt(show_bool: bool) -> void:
 	if prompt_label:
-		prompt_label.visible = show
+		prompt_label.visible = show_bool
 		prompt_label.text = "[E] %s" % station_label
 
 

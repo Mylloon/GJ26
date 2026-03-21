@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b8rcyj26bpdc1" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" path="res://scenes/ui/interaction_popup.tscn" id="2_qhqgy"]
-[ext_resource type="Script" uid="uid://bddgbtqrkxxuw" path="res://scripts/game_recipe/ui/interaction_popup.gd" id="3_dqkch"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 
@@ -26,8 +25,7 @@ shape = SubResource("CapsuleShape3D_qhqgy")
 [node name="InteractionZone" type="Area3D" parent="CharacterBody3D" unique_id=1753538752]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/InteractionZone" unique_id=2739635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1428506, 0.015944242)
+transform = Transform3D(1.265, 0, 0, 0, 1.265, 0, 0, 0, 1.265, 0, 0.96801996, 0.015944242)
 shape = SubResource("CapsuleShape3D_qhqgy")
 
 [node name="InteractionPopup" parent="CharacterBody3D" unique_id=113951643 instance=ExtResource("2_qhqgy")]
-script = ExtResource("3_dqkch")

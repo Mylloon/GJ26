@@ -20,9 +20,9 @@ func _ready() -> void:
 	action_duration = 0.0
  
  
-func show_prompt(show: bool) -> void:
+func show_prompt(show_bool: bool) -> void:
 	if prompt_label:
-		prompt_label.visible = show
+		prompt_label.visible = show_bool
 		prompt_label.text = "[E] Ajouter / Mélanger" if not contents.is_empty() else "[E] Ajouter au bol"
  
  

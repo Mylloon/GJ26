@@ -23,8 +23,8 @@ var held_ingredient_node: Node = null
 var nearby_interactable: Node = null
 
 # Référence au popup d'interaction (InteractionPopup CanvasLayer)
-# Assigné depuis kitchen.gd : player.interaction_popup = $InteractionPopup
-var interaction_popup: Node = null
+# Assigné depuis kitchen.gd : player.
+@onready var interaction_popup: Node = $InteractionPopup
 
 # ── Signaux vers le GameManager ────────────────────────────────────────────
 signal action_performed(action_id: String, ingredient: String, station_id: String)
@@ -80,7 +80,9 @@ func _unhandled_input(event: InputEvent) -> void:
 # ── Détection de zone ──────────────────────────────────────────────────────
 
 func _on_body_entered_zone(body: Node) -> void:
+	print(nearby_interactable)
 	if body.is_in_group("interactable"):
+		print(nearby_interactable)
 		nearby_interactable = body
 		_show_interaction_popup(body)
 
@@ -120,7 +122,6 @@ func _hide_interaction_popup() -> void:
 func _try_interact() -> void:
 	if nearby_interactable == null:
 		return
-
 	# Tous les interactables sont désormais des stations (dont StationIngredientRack)
 	if nearby_interactable.is_in_group("station"):
 		_try_use_station(nearby_interactable)

@@ -587,7 +587,7 @@ transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4
 mesh = SubResource("ArrayMesh_5jksn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationIngredientRack/kitchencounter_straight_B_backsplash" unique_id=1907916715]
-transform = Transform3D(2.13, 0, 0, 0, 2.1299987, -8.526513e-14, 0, 8.526513e-14, 2.1299987, -0.00081889704, 0.0026067644, 0.0017627983)
+transform = Transform3D(2.13, 0, 0, 0, 2.1299982, -1.0658141e-13, 0, 1.0658141e-13, 2.1299982, -0.0074444413, 0.0074994564, 0.0017627984)
 script = ExtResource("12_ktc20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationIngredientRack/kitchencounter_straight_B_backsplash/StaticBody3D" unique_id=1942316539]

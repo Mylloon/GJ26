@@ -142,11 +142,11 @@ func _process(_delta: float) -> void:
 
 # ── Animations ────────────────────────────────────────────────────────────
 
-func _show_panel(show: bool) -> void:
+func _show_panel(show_bool: bool) -> void:
 	if _tween:
 		_tween.kill()
 
-	if show:
+	if show_bool:
 		panel.visible = true
 		panel.scale = Vector2(0.8, 0.8)
 		panel.pivot_offset = panel.size / 2.0
