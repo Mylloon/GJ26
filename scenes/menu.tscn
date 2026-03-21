@@ -39,6 +39,7 @@ theme_override_constants/separation = 28
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=118693161]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Jouer"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=577069440]
