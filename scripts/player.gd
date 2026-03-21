@@ -10,7 +10,6 @@ var controls_inverted: bool = false
 
 # ── Ingrédient en main ─────────────────────────────────────────────────────
 var held_ingredient: String = ""
-var held_ingredient_node: Node = null
 
 # ── Zone d'interaction ─────────────────────────────────────────────────────
 # Ajouter un nœud Area3D enfant nommé "InteractionZone" avec un CollisionShape3D
@@ -140,8 +139,7 @@ func _try_interact() -> void:
 
 func receive_ingredient(ingredient_id: String) -> void:
 	held_ingredient = ingredient_id
-	held_ingredient_node = null  # pas de node 3D associé, vient du menu
-	_update_held_display()
+	#_update_held_display()
 	emit_signal("ingredient_picked_up", ingredient_id)
 	# Rafraîchir le hint du popup (l'ingrédient en main a changé)
 	if interaction_popup and nearby_interactable:
@@ -153,11 +151,11 @@ func receive_ingredient(ingredient_id: String) -> void:
 
 func drop_ingredient() -> void:
 	if held_ingredient == "":
+		print("NOOOOOT heeeld")
 		return
-
+	print("heeeld")
 	held_ingredient = ""
-	held_ingredient_node = null
-	_update_held_display()
+	#_update_held_display()
 	emit_signal("ingredient_dropped")
 	# Rafraîchir le hint du popup
 	if interaction_popup and nearby_interactable:
@@ -188,10 +186,6 @@ func _try_use_station(station: Node) -> void:
 	var ingredient_used: String = held_ingredient
 
 	if consumed and held_ingredient != "":
-		if held_ingredient_node:
-			held_ingredient_node.queue_free()
-			held_ingredient_node = null
-		held_ingredient = ""
 		_update_held_display()
 
 	if produced != "":
@@ -206,9 +200,14 @@ func _try_use_station(station: Node) -> void:
 
 
 func _update_held_display() -> void:
+	print("_update_held_display")
+	drop_ingredient()
+	"""
+	print("updateeee avant")
 	if not held_item_display:
 		return
 	held_item_display.visible = held_ingredient != ""
+	print("updateeee arprès")"""
 	# Optionnel : swapper le mesh selon l'ingrédient
 	# held_item_display.mesh = load("res://assets/ingredients/%s.mesh" % held_ingredient)
 

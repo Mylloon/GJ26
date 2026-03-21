@@ -85,6 +85,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 func _instant_action(_ingredient_in_hand: String) -> Dictionary:
 	_play_action_animation()
 	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
+	
 	return {
 		"success": true,
 		"action_id": accepted_action,

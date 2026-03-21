@@ -64,6 +64,7 @@ func _on_ingredient_picked_up(ingredient_id: String) -> void:
 
 
 func _on_ingredient_dropped() -> void:
+	print("DROOOOOP")
 	emoji_label.text      = ""
 	ingredient_label.text = "—"
 	_apply_style(false)

@@ -29,7 +29,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 		"success": true,
 		"action_id": "verser",
 		"station_id": station_id,
-		"consumes_ingredient": true,
+		"consumes_ingredient": consumes_ingredient,
 		"produces_ingredient": "",
 		"message": "Versé !"
 	}
