@@ -12,7 +12,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(arrow, Input.CURSOR_ARROW)
 
 
-func _process(delta):
+func _process(_delta):
 	var click = "clic_gauche"
 	if Input.is_action_just_pressed(click):
 		Input.set_custom_mouse_cursor(clicked, Input.CURSOR_ARROW)
