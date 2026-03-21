@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://hud_held_item"]
+[gd_scene format=4]
 
-[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Script" uid="uid://c7tel8j82fve5" path="res://scripts/game_recipe/ui/hud.gd" id="1_hud"]
 
 [node name="HUD" type="CanvasLayer"]
 layer = 5
