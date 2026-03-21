@@ -118,7 +118,7 @@ func _build_steps(recipe: Dictionary) -> void:
 		child.queue_free()
 	_step_rows.clear()
 
-	var steps := RecipeLoader.get_steps_with_labels(recipe.get("id", ""))
+	var steps = RecipeLoader.get_steps_with_labels(recipe.get("id", ""))
 
 	for step in steps:
 		var row := _make_step_row(step)

@@ -60,7 +60,7 @@ func _start_next_order() -> void:
 	elif recipes_completed >= 7 and current_difficulty == "moyen":
 		current_difficulty = "difficile"
 
-	var recipe := RecipeLoader.get_random_recipe(current_difficulty)
+	var recipe = RecipeLoader.get_random_recipe(current_difficulty)
 	if recipe.is_empty():
 		push_error("[Kitchen] Aucune recette trouvée pour la difficulté : %s" % current_difficulty)
 		return
