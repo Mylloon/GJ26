@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b3a4p7agoreid"]
 
 [ext_resource type="PackedScene" uid="uid://bopli7nsqsjlf" path="res://scenes/player.tscn" id="1_7ilqw"]
-[ext_resource type="Script" uid="uid://c7jfe8rty83g4" path="res://scripts/game_recipe/kitchen.gd" id="1_lxurs"]
+[ext_resource type="Script" path="res://scripts/game_recipe/kitchen.gd" id="1_lxurs"]
 [ext_resource type="Script" uid="uid://b73ajpuxa6xqx" path="res://scripts/camera_3d.gd" id="2_ktc20"]
 [ext_resource type="Shader" uid="uid://c6qhkhar3xobg" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://c03x6lki4xy2i" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_innercorner_backsplash.fbx" id="5_bs8bs"]

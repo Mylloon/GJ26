@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://c15k5xcdag8uc"]
 
-[ext_resource type="PackedScene" uid="uid://cns14qe6u4yjq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_B_backsplash.fbx" id="1_cjri1"]
-[ext_resource type="PackedScene" uid="uid://d1yypibufcxmj" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/bowl_small.fbx" id="2_fpcb2"]
-[ext_resource type="Texture2D" uid="uid://bwo418ynagv6y" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/textures/Capture d'écran 2026-03-21 224009.png" id="3_fpcb2"]
+[ext_resource type="PackedScene" uid="uid://d1yypibufcxmj" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/bowl_small.fbx" id="1_jjilm"]
+[ext_resource type="PackedScene" uid="uid://cns14qe6u4yjq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_B_backsplash.fbx" id="2_0tc0s"]
+[ext_resource type="Texture2D" uid="uid://bwo418ynagv6y" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/textures/Capture d'écran 2026-03-21 224009.png" id="3_r5n35"]
+[ext_resource type="Script" uid="uid://csh6epl6d7mjc" path="res://mesh_instance_3d.gd" id="4_p4te0"]
+[ext_resource type="Texture2D" uid="uid://dwuyuykt3w5pc" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/textures/jauge_mix.png" id="5_wpu4a"]
+[ext_resource type="Texture2D" uid="uid://csxbax2th354x" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/textures/jauge_mix_fill.png" id="6_pyf2e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq5uq"]
-albedo_texture = ExtResource("3_fpcb2")
+albedo_texture = ExtResource("3_r5n35")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xpf38"]
 top_radius = 0.1
@@ -16,10 +19,10 @@ height = 0.01
 
 [node name="MinigameMix" type="Node3D" unique_id=968592930]
 
-[node name="bowl_small" parent="." unique_id=646026921 instance=ExtResource("2_fpcb2")]
+[node name="bowl_small" parent="." unique_id=646026921 instance=ExtResource("1_jjilm")]
 transform = Transform3D(0.34999287, 0.0021332807, -0.00065329147, -0.0021345138, 0.34999287, -0.0006606027, 0.00064925174, 0.00066457345, 0.34999877, -0.056103185, 0.99672747, 0.11929202)
 
-[node name="kitchencounter_straight_B_backsplash2" parent="." unique_id=1610190926 instance=ExtResource("1_cjri1")]
+[node name="kitchencounter_straight_B_backsplash2" parent="." unique_id=1610190926 instance=ExtResource("2_0tc0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018679619, 0, 0.011364937)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1756190815]
@@ -30,6 +33,13 @@ transform = Transform3D(-0.619738, 0, -0.7848088, 0, 1, 0, 0.7848088, 0, -0.6197
 material_override = SubResource("StandardMaterial3D_sq5uq")
 mesh = SubResource("CylinderMesh_xpf38")
 surface_material_override/0 = SubResource("StandardMaterial3D_k17rc")
+script = ExtResource("4_p4te0")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=971683466]
 transform = Transform3D(1, 0, 0, 0, 0.34052727, 0.94023466, 0, -0.94023466, 0.34052727, 0, 3.5340042, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=989430825]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_over = ExtResource("5_wpu4a")
+texture_progress = ExtResource("6_pyf2e")
