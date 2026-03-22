@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bopli7nsqsjlf"]
 
 [ext_resource type="Script" uid="uid://b8rcyj26bpdc1" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="PackedScene" path="res://scenes/ui/interaction_popup.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://d3gwmehvn5yo4" path="res://scenes/ui/interaction_popup.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://my0ttedjy5eq" path="res://assets/models/Walking.fbx" id="3_qhqgy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 
@@ -16,6 +17,7 @@ script = ExtResource("1_g2els")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2085727678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9966146, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_g2els")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=116432727]
@@ -29,3 +31,5 @@ transform = Transform3D(1.265, 0, 0, 0, 1.265, 0, 0, 0, 1.265, 0, 0.96801996, 0.
 shape = SubResource("CapsuleShape3D_qhqgy")
 
 [node name="InteractionPopup" parent="CharacterBody3D" unique_id=113951643 instance=ExtResource("2_qhqgy")]
+
+[node name="Walking" parent="CharacterBody3D" unique_id=606395293 instance=ExtResource("3_qhqgy")]
