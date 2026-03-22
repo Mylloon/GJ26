@@ -1,6 +1,6 @@
 {
   "ingredients": [
-    { "id": "farine",           "label": "Farine",        "emoji": "🌾" },
+    { "id": "farine",           "label": "Farine",        "emoji": "🌾" }, 
     { "id": "beurre",           "label": "Beurre",        "emoji": "🧈" },
     { "id": "oeufs",            "label": "Œufs",          "emoji": "🥚" },
     { "id": "sucre",            "label": "Sucre",         "emoji": "🍬" },

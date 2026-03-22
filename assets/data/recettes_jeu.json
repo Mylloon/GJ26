@@ -36,7 +36,7 @@
 	  "mélanger",
 	  "mettre_au_four",
 	  "cuire_poele",
-	  "chauffer_lait",
+	  "mousser_lait",
 	  "mousser_lait",
 	  "faire_expresso",
 	  "verser",
@@ -77,14 +77,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-            "pépites_chocolat"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "pépites_chocolat"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre beurre, sucre, oeufs, farine, levure et les pépites_chocolat dans le bol"
@@ -113,14 +106,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-            "matcha"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "matcha"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre beurre, sucre, oeufs, farine, levure et le matcha dans le bol"
@@ -149,14 +135,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-            "amandes"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "amandes"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre beurre, sucre, oeufs, farine, levure et de l'amandes dans le bol"
@@ -185,22 +164,13 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "chocolat"
-		  ],
+		  "ingredients": ["chocolat"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-			"chocolat",
-			"beurre",
-			"oeufs",
-			"sucre",
-			"farine",
-            "levure"
-		  ],
+		  "ingredients": ["chocolat", "beurre", "oeufs", "sucre", "farine", "levure"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -223,15 +193,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"vanille",
-			"farine",
-			"levure",
-            "lait"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "vanille", "farine", "levure", "lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -252,22 +214,13 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "fraise"
-		  ],
+		  "ingredients": ["fraise"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-            "fraise"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "fraise"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -288,9 +241,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "chocolat"
-		  ],
+		  "ingredients": ["chocolat"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD"
 		},
@@ -326,16 +277,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-			"sel",
-			"vanille",
-            "lait"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "vanille", "lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -356,24 +298,13 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "fraise"
-		  ],
+		  "ingredients": ["fraise"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-			"sel",
-			"fraise",
-            "lait"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "fraise", "lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -394,24 +325,13 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "mangue"
-		  ],
+		  "ingredients": ["mangue"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-			"beurre",
-			"sucre",
-			"oeufs",
-			"farine",
-			"levure",
-			"sel",
-			"mangue",
-            "lait"
-		  ],
+		  "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "mangue", "lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -435,30 +355,21 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-			"farine",
-			"sel",
-			"sucre",
-            "levure"
-		  ],
+		  "ingredients": ["farine", "sel", "sucre", "levure"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre les ingrédients secs dans le bol"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "lait"
-		  ],
-		  "action": "chauffer_lait",
+		  "ingredients": ["lait"],
+		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Chauffer le lait à la buse vapeur"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Verser le lait chaud dans le bol"
@@ -472,9 +383,7 @@
 		},
 		{
 		  "ordre": 5,
-		  "ingredients": [
-            "beurre"
-		  ],
+		  "ingredients": ["beurre"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD",
 		  "note": "Couper le beurre en lamelles pour le tourage"
@@ -496,20 +405,14 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "pain_de_mie"
-		  ],
+		  "ingredients": ["pain_de_mie"],
 		  "action": "couper",
 		  "poste": "CUTTING_BOARD",
 		  "note": "Couper le pain de mie en tranches épaisses"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-			"oeufs",
-			"lait",
-            "sucre"
-		  ],
+		  "ingredients": ["oeufs", "lait", "sucre"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre oeufs, lait et sucre dans le bol"
@@ -523,27 +426,21 @@
 		},
 		{
 		  "ordre": 4,
-		  "ingredients": [
-            "pain_de_mie"
-		  ],
+		  "ingredients": ["pain_de_mie"],
 		  "action": "tremper",
 		  "poste": "BOWL",
 		  "note": "Tremper les tranches de pain dans la préparation"
 		},
 		{
 		  "ordre": 5,
-		  "ingredients": [
-            "beurre"
-		  ],
+		  "ingredients": ["beurre"],
 		  "action": "cuire_poele",
 		  "poste": "PAN",
 		  "note": "Faire dorer dans la poêle avec le beurre"
 		},
 		{
 		  "ordre": 6,
-		  "ingredients": [
-            "cannelle"
-		  ],
+		  "ingredients": ["cannelle"],
 		  "action": "dresser",
 		  "poste": "PLATE",
 		  "note": "Dresser et saupoudrer de cannelle"
@@ -558,9 +455,7 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "café_moulu"
-		  ],
+		  "ingredients": ["café_moulu"],
 		  "action": "faire_expresso",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Lancer l'extraction du café"
@@ -582,18 +477,14 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "café_moulu"
-		  ],
+		  "ingredients": ["café_moulu"],
 		  "action": "faire_expresso",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Extraire l'expresso"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Faire mousser le lait"
@@ -615,27 +506,21 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "sirop_vanille"
-		  ],
+		  "ingredients": ["sirop_vanille"],
 		  "action": "verser",
 		  "poste": "CUP",
 		  "note": "Verser le sirop vanille dans la tasse en premier"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "café_moulu"
-		  ],
+		  "ingredients": ["café_moulu"],
 		  "action": "faire_expresso",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Extraire l'expresso par-dessus le sirop"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Faire mousser le lait et verser dans la tasse"
@@ -650,27 +535,21 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "sirop_fraise"
-		  ],
+		  "ingredients": ["sirop_fraise"],
 		  "action": "verser",
 		  "poste": "CUP",
 		  "note": "Verser le sirop fraise dans la tasse en premier"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "café_moulu"
-		  ],
+		  "ingredients": ["café_moulu"],
 		  "action": "faire_expresso",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Extraire l'expresso par-dessus le sirop"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Faire mousser le lait et verser dans la tasse"
@@ -685,27 +564,21 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "sirop_mangue"
-		  ],
+		  "ingredients": ["sirop_mangue"],
 		  "action": "verser",
 		  "poste": "CUP",
 		  "note": "Verser le sirop mangue dans la tasse en premier"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "café_moulu"
-		  ],
+		  "ingredients": ["café_moulu"],
 		  "action": "faire_expresso",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Extraire l'expresso par-dessus le sirop"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Faire mousser le lait et verser dans la tasse"
@@ -720,27 +593,21 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "matcha"
-		  ],
+		  "ingredients": ["matcha"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Mettre la poudre de matcha dans le bol"
 		},
 		{
 		  "ordre": 2,
-		  "ingredients": [
-            "lait"
-		  ],
-		  "action": "chauffer_lait",
+		  "ingredients": ["lait"],
+		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER",
 		  "note": "Chauffer le lait à la buse vapeur"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-            "lait"
-		  ],
+		  "ingredients": ["lait"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL",
 		  "note": "Verser le lait chaud sur le matcha"
@@ -766,23 +633,18 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "matcha"
-		  ],
+		  "ingredients": ["matcha"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
 		{
 		  "ordre": 2,
-		  "action": "chauffer_lait",
+		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-			"lait",
-            "sirop_fraise"
-		  ],
+		  "ingredients": ["lait", "sirop_fraise"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
@@ -804,23 +666,18 @@
 	  "etapes": [
 		{
 		  "ordre": 1,
-		  "ingredients": [
-            "matcha"
-		  ],
+		  "ingredients": ["matcha"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},
 		{
 		  "ordre": 2,
-		  "action": "chauffer_lait",
+		  "action": "mousser_lait",
 		  "poste": "ESPRESSO_STEAMER"
 		},
 		{
 		  "ordre": 3,
-		  "ingredients": [
-			"lait",
-            "sirop_mangue"
-		  ],
+		  "ingredients": ["lait", "sirop_mangue"],
 		  "action": "mettre_dans_bol",
 		  "poste": "BOWL"
 		},

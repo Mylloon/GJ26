@@ -82,7 +82,6 @@ func _on_recipe_completed(recipe_id: String) -> void:
 	print("[Kitchen] Recette terminée : %s (%d au total)" % [recipe_id, recipes_completed])
 
 	# Petite pause avant la prochaine commande
-	await get_tree().create_timer(2.0).timeout
 	_start_next_order()
 
 
