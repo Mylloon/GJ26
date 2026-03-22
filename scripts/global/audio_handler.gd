@@ -8,6 +8,7 @@ const main_music = preload("res://assets/audio/background.mp3")
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	# Mute volume on startup, will be overrided by the config
 	set_volume(0.0)
 
