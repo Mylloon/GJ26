@@ -992,7 +992,7 @@ script = ExtResource("17_acu1m")
 [node name="IntroDialog" parent="." unique_id=511240820 instance=ExtResource("39_tpccs")]
 
 [node name="Timer" type="Timer" parent="." unique_id=955639398]
-wait_time = 181.0
+wait_time = 301.0
 one_shot = true
 autostart = true
 
