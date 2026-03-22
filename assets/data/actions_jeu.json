@@ -1,88 +1,95 @@
 {
   "actions": [
-    {
-      "id": "couper",
-      "label": "Couper",
-      "description": "Découper l'ingrédient sur la planche",
-      "icone": "🔪",
-      "poste": "CUTTING_BOARD"
-    },
-    {
-      "id": "mettre_dans_bol",
-      "label": "Ajouter au bol",
-      "description": "Verser l'ingrédient dans le bol",
-      "icone": "🥣",
-      "poste": "BOWL"
-    },
-    {
-      "id": "mélanger",
-      "label": "Mélanger",
-      "description": "Mélanger le contenu du bol au batteur",
-      "icone": "🌀",
-      "poste": "BOWL"
-    },
-    {
-      "id": "mettre_au_four",
-      "label": "Enfourner",
-      "description": "Mettre la préparation au four",
-      "icone": "🔥",
-      "poste": "OVEN"
-    },
-    {
-      "id": "cuire_poele",
-      "label": "Cuire à la poêle",
-      "description": "Faire cuire dans la poêle chaude",
-      "icone": "🍳",
-      "poste": "PAN"
-    },
-    {
-      "id": "tremper",
-      "label": "Tremper",
-      "description": "Plonger l'ingrédient dans la préparation du bol",
-      "icone": "💧",
-      "poste": "BOWL"
-    },
-    {
-      "id": "chauffer_lait",
-      "label": "Chauffer le lait",
-      "description": "Faire chauffer le lait à la buse vapeur",
-      "icone": "♨️",
-      "poste": "ESPRESSO_STEAMER"
-    },
-    {
-      "id": "mousser_lait",
-      "label": "Mousser le lait",
-      "description": "Faire mousser le lait à la buse vapeur",
-      "icone": "☁️",
-      "poste": "ESPRESSO_STEAMER"
-    },
-    {
-      "id": "faire_expresso",
-      "label": "Faire un expresso",
-      "description": "Lancer l'extraction du café",
-      "icone": "☕",
-      "poste": "ESPRESSO_STEAMER"
-    },
-    {
-      "id": "verser",
-      "label": "Verser dans la tasse",
-      "description": "Assembler et verser dans la tasse",
-      "icone": "🫗",
-      "poste": "CUP"
-    },
-    {
-      "id": "dresser",
-      "label": "Dresser l'assiette",
-      "description": "Disposer et garnir dans l'assiette",
-      "icone": "🍽️",
-      "poste": "PLATE"
-    },
-    {
-      "id": "jeter",
-      "label": "Jeter",
-      "description": "Jeter l'ingrédient à la poubelle",
-      "icone": "🗑️",
-      "poste": "TRASH"
-    }
+	{
+	  "id": "couper",
+	  "label": "Couper",
+	  "description": "Découper l'ingrédient sur la planche",
+	  "icone": "🔪",
+	  "poste": "CUTTING_BOARD"
+	},
+	{
+	  "id": "mettre_dans_bol",
+	  "label": "Ajouter au bol",
+	  "description": "Verser l'ingrédient dans le bol",
+	  "icone": "🥣",
+	  "poste": "BOWL"
+	},
+	{
+	  "id": "mélanger",
+	  "label": "Mélanger",
+	  "description": "Mélanger le contenu du bol au batteur",
+	  "icone": "🌀",
+	  "poste": "BOWL"
+	},
+	{
+	  "id": "mettre_au_four",
+	  "label": "Enfourner",
+	  "description": "Mettre la préparation au four",
+	  "icone": "🔥",
+	  "poste": "OVEN"
+	},
+	{
+	  "id": "cuire_poele",
+	  "label": "Cuire à la poêle",
+	  "description": "Faire cuire dans la poêle chaude",
+	  "icone": "🍳",
+	  "poste": "PAN"
+	},
+	{
+	  "id": "tremper",
+	  "label": "Tremper",
+	  "description": "Plonger l'ingrédient dans la préparation du bol",
+	  "icone": "💧",
+	  "poste": "BOWL"
+	},
+	{
+	  "id": "chauffer_lait",
+	  "label": "Chauffer le lait",
+	  "description": "Faire chauffer le lait à la buse vapeur",
+	  "icone": "♨️",
+	  "poste": "ESPRESSO_STEAMER"
+	},
+	{
+	  "id": "mousser_lait",
+	  "label": "Mousser le lait",
+	  "description": "Faire mousser le lait à la buse vapeur",
+	  "icone": "☁️",
+	  "poste": "ESPRESSO_STEAMER"
+	},
+	{
+	  "id": "faire_expresso",
+	  "label": "Faire un expresso",
+	  "description": "Lancer l'extraction du café",
+	  "icone": "☕",
+	  "poste": "ESPRESSO_STEAMER"
+	},
+	{
+	  "id": "verser",
+	  "label": "Verser dans la tasse",
+	  "description": "Assembler et verser dans la tasse",
+	  "icone": "🫗",
+	  "poste": "CUP"
+	},
+	{
+	  "id": "dresser",
+	  "label": "Dresser l'assiette",
+	  "description": "Disposer et garnir dans l'assiette",
+	  "icone": "🍽️",
+	  "poste": "PLATE"
+	},
+	{
+	  "id": "jeter",
+	  "label": "Jeter",
+	  "description": "Jeter l'ingrédient à la poubelle",
+	  "icone": "🗑️",
+	  "poste": "TRASH"
+	},
+	{
+	  "id": "assembler",
+	  "label": "Assembler dans la tasse",
+	  "description": "Assembler les préparations et verser dans la tasse",
+	  "icone": "🫗",
+	  "poste": "CUP"
+	}
   ]
 }
