@@ -43,13 +43,6 @@
       "poste": "BOWL"
     },
     {
-      "id": "chauffer_lait",
-      "label": "Chauffer le lait",
-      "description": "Faire chauffer le lait à la buse vapeur",
-      "icone": "♨️",
-      "poste": "ESPRESSO_STEAMER"
-    },
-    {
       "id": "mousser_lait",
       "label": "Mousser le lait",
       "description": "Faire mousser le lait à la buse vapeur",
