@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://big6ch0wb2lpx"]
+
+[ext_resource type="Texture2D" uid="uid://cuabguwl0i8ib" path="res://assets/Background_notepad.png" id="1_pq6gc"]
+[ext_resource type="Script" uid="uid://r51ieihlqju2" path="res://scripts/notepad.gd" id="1_vobun"]
+[ext_resource type="Texture2D" uid="uid://daik5kdrdxktw" path="res://assets/Sheets.png" id="2_vobun"]
+[ext_resource type="Texture2D" uid="uid://upwby14tl7x7" path="res://assets/Background_notepad_top.png" id="3_q2twp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn4bt"]
+atlas = ExtResource("2_vobun")
+region = Rect2(4125, 0, 1375, 1411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1fnm"]
+atlas = ExtResource("2_vobun")
+region = Rect2(2750, 0, 1375, 1411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wen6a"]
+atlas = ExtResource("2_vobun")
+region = Rect2(1375, 0, 1375, 1411)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cml1b"]
+atlas = ExtResource("2_vobun")
+region = Rect2(0, 0, 1375, 1411)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afubs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn4bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1fnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wen6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cml1b")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Notepad" type="Control" unique_id=1606088176 node_paths=PackedStringArray("animated_sprite_2d")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vobun")
+animated_sprite_2d = NodePath("FonduTexture/AnimatedSprite2D")
+
+[node name="FonduTexture" type="TextureRect" parent="." unique_id=2031374434]
+layout_mode = 0
+offset_right = 464.08768
+offset_bottom = 626.0
+texture = ExtResource("1_pq6gc")
+expand_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FonduTexture" unique_id=103550219]
+texture_filter = 1
+position = Vector2(309.26794, 308)
+scale = Vector2(0.40981814, 0.42204112)
+sprite_frames = SubResource("SpriteFrames_afubs")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="Top" type="TextureRect" parent="FonduTexture" unique_id=1255106978]
+layout_mode = 0
+offset_left = 110.0
+offset_top = -22.0
+offset_right = 366.6233
+offset_bottom = 47.0
+texture = ExtResource("3_q2twp")
+expand_mode = 3
+
+[connection signal="frame_changed" from="FonduTexture/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b3usbt2dsyi46"]
 
 [ext_resource type="Script" uid="uid://xtn0txivok8r" path="res://scripts/pause.gd" id="1_f1d2v"]
-[ext_resource type="Texture2D" uid="uid://cuabguwl0i8ib" path="res://assets/Background_notepad.png" id="2_r8yp4"]
-[ext_resource type="Texture2D" uid="uid://daik5kdrdxktw" path="res://assets/Sheets.png" id="3_aicil"]
-[ext_resource type="Texture2D" uid="uid://upwby14tl7x7" path="res://assets/Background_notepad_top.png" id="3_m0klm"]
+[ext_resource type="PackedScene" uid="uid://big6ch0wb2lpx" path="res://scenes/notepad.tscn" id="2_r8yp4"]
 
 [sub_resource type="Shader" id="Shader_f1d2v"]
 code = "shader_type canvas_item;
@@ -36,57 +34,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r8yp4"]
 shader = SubResource("Shader_f1d2v")
-shader_parameter/effect = 0.8
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jn4bt"]
-atlas = ExtResource("3_aicil")
-region = Rect2(4125, 0, 1375, 1411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1fnm"]
-atlas = ExtResource("3_aicil")
-region = Rect2(2750, 0, 1375, 1411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wen6a"]
-atlas = ExtResource("3_aicil")
-region = Rect2(1375, 0, 1375, 1411)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cml1b"]
-atlas = ExtResource("3_aicil")
-region = Rect2(0, 0, 1375, 1411)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_m0klm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jn4bt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r1fnm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wen6a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cml1b")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_aicil"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FonduTexture/MarginContainer:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.11764706, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
+shader_parameter/effect = 0.0
 
 [sub_resource type="Animation" id="Animation_r8yp4"]
 resource_name = "blur"
@@ -94,21 +42,10 @@ length = 0.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FonduTexture:modulate:a")
+tracks/0/path = NodePath("Background:material:shader_parameter/effect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2),
-"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 1, -0.050000004, -0.16666667, 0, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background:material:shader_parameter/effect")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 2),
 "points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.8, -0.050000004, -0.13333334, 0, 0),
 "times": PackedFloat32Array(0, 0.3)
@@ -120,7 +57,7 @@ length = 0.4
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FonduTexture/MarginContainer:modulate:a")
+tracks/0/path = NodePath("Notepad/MarginContainer:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,12 +68,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m0klm"]
 _data = {
-&"RESET": SubResource("Animation_aicil"),
 &"blur": SubResource("Animation_r8yp4"),
 &"buttons": SubResource("Animation_jn4bt")
 }
 
-[node name="Pause" type="Control" unique_id=786217571 node_paths=PackedStringArray("animation_player", "animated_sprite_2d", "margin_container", "background")]
+[node name="Pause" type="Control" unique_id=786217571 node_paths=PackedStringArray("animation_player", "margin_container", "background")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -147,8 +83,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_f1d2v")
 animation_player = NodePath("Fondu")
-animated_sprite_2d = NodePath("FonduTexture/AnimatedSprite2D")
-margin_container = NodePath("FonduTexture/MarginContainer")
+margin_container = NodePath("Notepad/MarginContainer")
 background = NodePath("Background")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1780139030]
@@ -160,47 +95,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FonduTexture" type="TextureRect" parent="." unique_id=666599384]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=921719730]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Notepad" parent="." unique_id=1606088176 instance=ExtResource("2_r8yp4")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 405.73206
-offset_top = 44.0
-offset_right = -405.73212
-offset_bottom = -44.0
+anchors_preset = -1
+anchor_right = 0.36200002
+anchor_bottom = 0.864
+offset_left = 391.0
+offset_top = 40.0
+offset_right = 391.63998
+offset_bottom = 39.919983
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_r8yp4")
-expand_mode = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FonduTexture" unique_id=247817108]
-texture_filter = 1
-position = Vector2(309.26794, 308)
-scale = Vector2(0.40981814, 0.42204112)
-sprite_frames = SubResource("SpriteFrames_m0klm")
-autoplay = "default"
-frame = 3
-frame_progress = 1.0
-
-[node name="Top" type="TextureRect" parent="FonduTexture" unique_id=975020641]
-layout_mode = 0
-offset_left = 110.0
-offset_top = -22.0
-offset_right = 366.6233
-offset_bottom = 47.0
-texture = ExtResource("3_m0klm")
-expand_mode = 3
-
-[node name="RichTextLabel" type="RichTextLabel" parent="FonduTexture" unique_id=1893408878]
+[node name="RichTextLabel" type="RichTextLabel" parent="Notepad" unique_id=1893408878]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 37.267944
-offset_top = 36.0
-offset_right = -32.267883
-offset_bottom = -525.0
+offset_top = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -211,30 +128,29 @@ text = "PAUSE"
 autowrap_mode = 0
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="FonduTexture" unique_id=1750045979]
-modulate = Color(1, 1, 1, 0.11764706)
+[node name="MarginContainer" type="MarginContainer" parent="Notepad" unique_id=1750045979]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 36.267944
-offset_top = 58.0
-offset_right = -36.267883
-offset_bottom = -92.0
+offset_left = 33.0
+offset_top = 57.0
+offset_right = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 54
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 68
 
-[node name="VBoxContainer" type="VBoxContainer" parent="FonduTexture/MarginContainer" unique_id=1119534817]
+[node name="VBoxContainer" type="VBoxContainer" parent="Notepad/MarginContainer" unique_id=1119534817]
 layout_mode = 2
 theme_override_constants/separation = 28
 
-[node name="Resume" type="Button" parent="FonduTexture/MarginContainer/VBoxContainer" unique_id=885348539]
+[node name="Resume" type="Button" parent="Notepad/MarginContainer/VBoxContainer" unique_id=885348539]
 layout_mode = 2
 text = "Revenir au jeu"
 
@@ -242,5 +158,10 @@ text = "Revenir au jeu"
 libraries/ = SubResource("AnimationLibrary_m0klm")
 autoplay = &"blur"
 
-[connection signal="animation_finished" from="FonduTexture/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="pressed" from="FonduTexture/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[node name="Control" type="Control" parent="." unique_id=994848178]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="animation_start" from="Notepad" to="." method="_on_notepad_animation_start"]
+[connection signal="pressed" from="Notepad/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
