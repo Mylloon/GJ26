@@ -13,7 +13,7 @@ func _ready():
 
 
 func _process(_delta):
-	var click = "clic_gauche"
+	var click = "left_click"
 	if Input.is_action_just_pressed(click):
 		Input.set_custom_mouse_cursor(clicked, Input.CURSOR_ARROW)
 

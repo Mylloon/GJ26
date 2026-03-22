@@ -1,12 +1,13 @@
-[gd_scene format=4]
+[gd_scene format=3 uid="uid://cp8gke05keals"]
 
 [ext_resource type="Script" uid="uid://c7tel8j82fve5" path="res://scripts/game_recipe/ui/hud.gd" id="1_hud"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=904860764]
 layer = 5
 script = ExtResource("1_hud")
 
-[node name="HeldItemPanel" type="Control" parent="."]
+[node name="HeldItemPanel" type="Control" parent="." unique_id=977422477]
+layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -19,32 +20,29 @@ offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="SlotBg" type="PanelContainer" parent="HeldItemPanel"]
-anchors_preset = 15
+[node name="SlotBg" type="PanelContainer" parent="HeldItemPanel" unique_id=243108960]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBox" type="VBoxContainer" parent="HeldItemPanel/SlotBg"]
+[node name="VBox" type="VBoxContainer" parent="HeldItemPanel/SlotBg" unique_id=1072272564]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="SlotLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
+[node name="SlotLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox" unique_id=1282658006]
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "EN MAIN"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 10
 
-[node name="EmojiLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
-name = "EmojiLabel"
+[node name="EmojiLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox" unique_id=1293409231]
 layout_mode = 2
-text = ""
-horizontal_alignment = 1
 theme_override_font_sizes/font_size = 42
+horizontal_alignment = 1
 
-[node name="IngredientLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox"]
-name = "IngredientLabel"
+[node name="IngredientLabel" type="Label" parent="HeldItemPanel/SlotBg/VBox" unique_id=1473321482]
 layout_mode = 2
+theme_override_font_sizes/font_size = 13
 text = "—"
 horizontal_alignment = 1
-theme_override_font_sizes/font_size = 13
 autowrap_mode = 2

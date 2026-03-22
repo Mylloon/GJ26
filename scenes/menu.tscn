@@ -68,10 +68,12 @@ text = "Jouer"
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=577069440]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Paramètres"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1746294328]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Quitter"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

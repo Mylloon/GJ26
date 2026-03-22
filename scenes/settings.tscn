@@ -74,6 +74,7 @@ horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=147436388]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Retour"
 
 [connection signal="gui_input" from="MarginContainer/VBoxContainer/Volume/Slider" to="MarginContainer/VBoxContainer" method="_on_slider_gui_input"]

@@ -152,6 +152,7 @@ theme_override_constants/separation = 28
 
 [node name="Resume" type="Button" parent="Notepad/MarginContainer/VBoxContainer" unique_id=885348539]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Revenir au jeu"
 
 [node name="Fondu" type="AnimationPlayer" parent="." unique_id=1940647093]

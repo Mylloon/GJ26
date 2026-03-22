@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://c2jiuend8saxl"]
 
+[ext_resource type="PackedScene" uid="uid://big6ch0wb2lpx" path="res://scenes/notepad.tscn" id="1_3y3s0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y3s0"]
+
 [node name="IngredientMenu" type="CanvasLayer" unique_id=1086753569]
 layer = 10
 
@@ -10,6 +14,12 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.45)
 
+[node name="Notepad" parent="." unique_id=1606088176 instance=ExtResource("1_3y3s0")]
+offset_left = 386.0
+offset_top = 59.0
+offset_right = 386.0
+offset_bottom = 59.0
+
 [node name="Panel" type="PanelContainer" parent="." unique_id=1692829803]
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,11 +27,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -220.0
-offset_top = -260.0
-offset_right = 220.0
-offset_bottom = 260.0
+offset_top = -243.0
+offset_right = 186.0
+offset_bottom = 291.505
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3y3s0")
 
 [node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1239464367]
 layout_mode = 2
@@ -32,11 +43,15 @@ layout_mode = 2
 [node name="TitleLabel" type="Label" parent="Panel/VBox/Header" unique_id=313947885]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Choisir un ingrédient"
+horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="Panel/VBox/Header" unique_id=810136345]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "✕"
 flat = true
@@ -45,11 +60,14 @@ flat = true
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBox" unique_id=1952817170]
-custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="Panel/VBox/ScrollContainer" unique_id=317857748]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBox/ScrollContainer" unique_id=2023511498]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="GridContainer" type="GridContainer" parent="Panel/VBox/ScrollContainer/MarginContainer" unique_id=317857748]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 3

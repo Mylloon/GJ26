@@ -6,10 +6,11 @@ extends CanvasLayer
 
 signal ingredient_chosen(ingredient_id: String)
 
-@onready var grid: GridContainer = $Panel/VBox/ScrollContainer/GridContainer
+@onready var grid: GridContainer = $Panel/VBox/ScrollContainer/MarginContainer/GridContainer
 @onready var title_label: Label = $Panel/VBox/Header/TitleLabel
 @onready var close_button: Button = $Panel/VBox/Header/CloseButton
 @onready var overlay: ColorRect = $Overlay
+@onready var notepad: Control = $Notepad
 
 
 func _ready() -> void:
@@ -30,6 +31,7 @@ func open(available_ingredients: Array[String], rack_label: String = "Étagère"
 	_build_grid(available_ingredients)
 	visible = true
 	get_tree().paused = true
+	notepad.reset_animation()
 
 
 func close() -> void:
@@ -68,6 +70,7 @@ func _make_ingredient_button(ing_id: String, label_text: String, emoji: String) 
 	var btn := Button.new()
 	btn.custom_minimum_size = Vector2(120, 80)
 	btn.text = "%s\n%s" % [emoji, label_text]
+	btn.set_default_cursor_shape(Control.CURSOR_POINTING_HAND)
 
 	var normal_style := StyleBoxFlat.new()
 	normal_style.bg_color = Color(0.15, 0.12, 0.10)
