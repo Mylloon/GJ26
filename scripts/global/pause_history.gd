@@ -71,6 +71,8 @@ func clear_history() -> void:
 
 ## Quit the game properly.
 func exit_game() -> void:
-	# TODO: If web: don't crash just ignore
+	if OS.get_name() == "Web":
+		return
+
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
