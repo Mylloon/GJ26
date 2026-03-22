@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d3gwmehvn5yo4" path="res://scenes/ui/interaction_popup.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://my0ttedjy5eq" path="res://assets/models/Walking.fbx" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://bn1r2mvpgcabe" path="res://assets/models/stars.fbx" id="4_dqkch"]
+[ext_resource type="AudioStream" uid="uid://cthcsiqes8rs5" path="res://assets/audio/owowowowowo.mp3" id="5_qlg0r"]
 
 [sub_resource type="Animation" id="Animation_dqkch"]
 resource_name = "stars"
@@ -66,3 +67,7 @@ shape = SubResource("CapsuleShape3D_qhqgy")
 [node name="InteractionPopup" parent="CharacterBody3D" unique_id=113951643 instance=ExtResource("2_qhqgy")]
 
 [node name="Walking" parent="CharacterBody3D" unique_id=606395293 instance=ExtResource("3_qhqgy")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116417505]
+stream = ExtResource("5_qlg0r")
+volume_db = -8.0
