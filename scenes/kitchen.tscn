@@ -773,13 +773,6 @@ mesh = SubResource("ArrayMesh_edc06")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationMixer/kitchencounter_innercorner_backsplash2/kitchencounter_innercorner_backsplash" unique_id=1877732086]
 script = ExtResource("16_ls4fu")
-station_id = null
-station_label = null
-accepted_action = null
-station_mini_game = null
-accepted_ingredients = null
-produced_ingredient = null
-consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationMixer/kitchencounter_innercorner_backsplash2/kitchencounter_innercorner_backsplash/StaticBody3D" unique_id=1731209048]
 shape = SubResource("ConcavePolygonShape3D_5y6tu")

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bd3h77pyphioi"]
-
-[ext_resource type="Script" uid="uid://dhd3kxj2q1wmq" path="res://scripts/mini_game_bowl.gd" id="1_64ejx"]
-
-[node name="MiniGameBowl" type="Node3D" unique_id=1776214014]
-script = ExtResource("1_64ejx")
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=406163259]

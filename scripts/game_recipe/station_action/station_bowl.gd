@@ -33,7 +33,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 			return { "success": false, "message": "Le bol est vide !" }
 		accepted_action = "mélanger"
 		
-		playMiniGame("res://scenes/minigame_mix.tscn")
+		playMiniGame("res://scenes/minigame/minigame_mix.tscn")
 		return {
 			"success": true,
 			"action_id": "mélanger",
