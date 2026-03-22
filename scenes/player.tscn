@@ -3,6 +3,28 @@
 [ext_resource type="Script" uid="uid://b8rcyj26bpdc1" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://d3gwmehvn5yo4" path="res://scenes/ui/interaction_popup.tscn" id="2_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://my0ttedjy5eq" path="res://assets/models/Walking.fbx" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://bn1r2mvpgcabe" path="res://assets/models/stars.fbx" id="4_dqkch"]
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "stars"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 6.2831855, -0.33333334, -1.0471976, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"stars": SubResource("Animation_dqkch")
+}
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 
@@ -12,9 +34,19 @@ height = 1.9871826
 
 [node name="Player" type="Node3D" unique_id=143797749]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=513865392]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=221086153]
+root_node = NodePath("../CharacterBody3D/stars")
+libraries/ = SubResource("AnimationLibrary_qlg0r")
+autoplay = &"stars"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=513865392 node_paths=PackedStringArray("stars")]
 collision_layer = 3
 script = ExtResource("1_g2els")
+stars = NodePath("stars")
+
+[node name="stars" parent="CharacterBody3D" unique_id=1528129887 instance=ExtResource("4_dqkch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01816541, 2.7534904, 0.10358626)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=2085727678]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9966146, 0)

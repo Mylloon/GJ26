@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 
 @onready var camera_rotation = $"../../SubViewportContainer/SubViewport/Camera3D".get_rotation()
+@export var stars: Node3D
 
 # ── Contrôles inversés (thème emmêlé) ──────────────────────────────────────
 var controls_inverted: bool = false
@@ -231,4 +232,6 @@ func _show_feedback(text: String) -> void:
 
 func set_controls_inverted(inverted: bool) -> void:
 	controls_inverted = inverted
+	stars.set_visible(inverted)
+
 	_show_feedback("⚡ Contrôles inversés !" if inverted else "Contrôles normaux")
