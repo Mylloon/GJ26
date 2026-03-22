@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://b2q8xlymdd4ee"]
+[gd_scene format=3 uid="uid://bshaq4rbhq1y4"]
 
 [ext_resource type="Texture2D" uid="uid://cak0ybv8k0rd1" path="res://assets/fond.png" id="1_10rtl"]
 [ext_resource type="Texture2D" uid="uid://cuabguwl0i8ib" path="res://assets/Background_notepad.png" id="2_h0cgr"]
-[ext_resource type="PackedScene" uid="uid://c0au4o8tckl4t" path="res://tpose_mii_sad.tscn" id="3_a5bqv"]
+[ext_resource type="PackedScene" path="res://tpose_mii_sad.tscn" id="3_a5bqv"]
 
 [node name="Node3D" type="Node3D" unique_id=1223600704]
 

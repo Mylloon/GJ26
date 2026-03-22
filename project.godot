@@ -10,11 +10,13 @@ config_version=5
 
 [application]
 
-config/name="GJ26"
+config/name="Tangled Menu"
+config/version="1.0"
 run/main_scene="uid://d0rfb6pm3biub"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.068798296, 0.06879827, 0.068798244, 1)
-config/icon="res://icon.svg"
+config/icon="uid://bwa1t616w81m4"
+config/windows_native_icon="res://assets/icon.ico"
 
 [autoload]
 
