@@ -11,6 +11,7 @@ signal ingredient_chosen(ingredient_id: String)
 @onready var close_button: Button = $Panel/VBox/Header/CloseButton
 @onready var overlay: ColorRect = $Overlay
 @onready var notepad: Control = $Notepad
+@onready var animation_player: AnimationPlayer = $Panel/AnimationPlayer
 
 
 func _ready() -> void:
@@ -32,6 +33,7 @@ func open(available_ingredients: Array[String], rack_label: String = "Étagère"
 	visible = true
 	get_tree().paused = true
 	notepad.reset_animation()
+	animation_player.play("grid")
 
 
 func close() -> void:

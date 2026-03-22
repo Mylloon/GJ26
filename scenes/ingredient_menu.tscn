@@ -4,6 +4,40 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3y3s0"]
 
+[sub_resource type="Animation" id="Animation_3y3s0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(46, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_decmk"]
+resource_name = "grid"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(46, -0.25, 0, 0.25, 0, 537, -0.16666667, -81.833336, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ik2k"]
+_data = {
+&"RESET": SubResource("Animation_3y3s0"),
+&"grid": SubResource("Animation_decmk")
+}
+
 [node name="IngredientMenu" type="CanvasLayer" unique_id=1086753569]
 layer = 10
 
@@ -29,7 +63,7 @@ anchor_bottom = 0.5
 offset_left = -220.0
 offset_top = -243.0
 offset_right = 186.0
-offset_bottom = 291.505
+offset_bottom = -197.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3y3s0")
@@ -71,3 +105,8 @@ theme_override_constants/margin_left = 16
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1097077074]
+libraries/ = SubResource("AnimationLibrary_6ik2k")
+autoplay = &"grid"
+speed_scale = 1.376
