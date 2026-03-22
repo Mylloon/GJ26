@@ -36,7 +36,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 			accepted_action = "faire_expresso"
 			produced_ingredient = "expresso"
 			
-			playMiniGame(station_mini_game)
+			playMiniGame("res://scenes/minigame/minigame_milk.tscn")
 			return {
 				"success": true,
 				"action_id": "faire_expresso",
@@ -51,7 +51,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 			accepted_action = "mousser_lait"
 			produced_ingredient = "lait_mousse"
 			
-			playMiniGame(station_mini_game)
+			playMiniGame("res://scenes/minigame/minigame_milk.tscn")
 			return {
 				"success": true,
 				"action_id": "mousser_lait",

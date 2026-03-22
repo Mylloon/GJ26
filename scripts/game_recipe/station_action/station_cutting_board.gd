@@ -33,7 +33,7 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 
 	produced_ingredient = CUTTABLE[ingredient_in_hand]
 	
-	playMiniGame(station_mini_game)
+	playMiniGame("res://scenes/minigame/minigame_cutting.tscn")
 	return {
 		"success": true,
 		"action_id": "couper",
