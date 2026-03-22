@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://blj38vp83ma16" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_outercorner_backsplash.fbx" id="7_acu1m"]
 [ext_resource type="PackedScene" uid="uid://272bc4bcs7pq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/crate_buns.fbx" id="8_1gswy"]
 [ext_resource type="PackedScene" uid="uid://qi6726mb08bn" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_sink_backsplash.fbx" id="8_87bic"]
-[ext_resource type="PackedScene" uid="uid://dutmo2hi6a44j" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_A.fbx" id="9_k1cyo"]
 [ext_resource type="PackedScene" uid="uid://c5t2c05rf33lk" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_A_backsplash.fbx" id="10_3fy06"]
 [ext_resource type="PackedScene" uid="uid://7ycrn53gkc3n" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchentable_sink_large_decorated.fbx" id="10_e7cmp"]
 [ext_resource type="Texture2D" uid="uid://b0lxmmjwexo7s" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/restaurantbits_texture.png" id="12_bs8bs"]
@@ -222,7 +221,7 @@ data = PackedVector3Array(-0.007837026, 0.009162914, 0.0080375, -0.008499939, 0.
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_v3ycp"]
-size = Vector3(15, 1, 15)
+size = Vector3(15, 1, 8.875)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgtir"]
 resource_name = "restaurant"
@@ -602,21 +601,6 @@ mesh = SubResource("QuadMesh_v3ycp")
 [node name="Interior" type="StaticBody3D" parent="." unique_id=1174205126]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -3.58111, -10.5, 3.085658)
 
-[node name="Kitchen_Decor" type="Node3D" parent="Interior" unique_id=614279425]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2668365, -2.1143246)
-
-[node name="kitchencounter_outercorner_backsplash" parent="Interior/Kitchen_Decor" unique_id=1782082592 instance=ExtResource("7_acu1m")]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.15742135, 0, -2.00027)
-
-[node name="kitchencounter_straight_A" parent="Interior/Kitchen_Decor" unique_id=1786387051 instance=ExtResource("9_k1cyo")]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0.87915057, 0, -2)
-
-[node name="kitchencounter_straight_A3" parent="Interior/Kitchen_Decor" unique_id=1418146673 instance=ExtResource("9_k1cyo")]
-transform = Transform3D(0.0169, 0, 0, 0, 0.0169, 0, 0, 0, 0.0169, 0.99344015, 0, -2.26)
-
-[node name="kitchencounter_straight_A4" parent="Interior/Kitchen_Decor" unique_id=1570668361 instance=ExtResource("9_k1cyo")]
-transform = Transform3D(0.0169, 0, 0, 0, 0.0169, 0, 0, 0, 0.0169, 0.47696018, 0, -2.26)
-
 [node name="Kitchen_Decor2" type="Node3D" parent="Interior" unique_id=1150278011]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.21966088, 1.2668365, -2.1122775)
 
@@ -686,7 +670,7 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_bems3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Interior/Ground" unique_id=211985498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008439541, -2.3841858e-07, 0.0085424185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.039414406, 2.6226044e-06, -3.5570421)
 mesh = SubResource("BoxMesh_v3ycp")
 
 [node name="_Interactive" type="Node3D" parent="Interior" unique_id=458887319]
@@ -967,8 +951,9 @@ mesh_library = ExtResource("14_ktc20")
 cell_size = Vector3(3.8, 0.005, 3.8)
 cell_scale = 100.0
 data = {
-"cells": PackedInt32Array(4, 65531, 1114248, 4, 65532, 1114248, 4, 65533, 1114248, 4, 65534, 1114248, 4, 65535, 1114248, 4, 0, 1114248, 4, 1, 1114248, 4, 2, 1114248)
+"cells": PackedInt32Array(4, 65531, 1114248, 4, 65532, 1114248, 4, 65533, 1114248, 4, 65534, 1114248, 4, 65535, 1114251)
 }
+metadata/_editor_floor_ = Vector3(0, -4, 0)
 
 [node name="IngredientMenu" parent="." unique_id=139349761 instance=ExtResource("16_88wuv")]
 script = ExtResource("17_acu1m")
