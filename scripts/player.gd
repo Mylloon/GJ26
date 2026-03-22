@@ -234,4 +234,7 @@ func set_controls_inverted(inverted: bool) -> void:
 	controls_inverted = inverted
 	stars.set_visible(inverted)
 
+	if inverted:
+		$"../AudioStreamPlayer".play()
+
 	_show_feedback("⚡ Contrôles inversés !" if inverted else "Contrôles normaux")
