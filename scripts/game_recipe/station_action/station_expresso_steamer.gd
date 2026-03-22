@@ -18,7 +18,7 @@ func _ready() -> void:
 	station_id = "ESPRESSO_STEAMER"
 	station_label = "Expresso / Vapeur"
 	consumes_ingredient = true
-	action_duration = 1.5
+	# station_mini_game = ""
  
  
 func show_prompt(show: bool) -> void:
@@ -28,8 +28,6 @@ func show_prompt(show: bool) -> void:
  
  
 func try_interact(ingredient_in_hand: String) -> Dictionary:
-	if is_busy:
-		return { "success": false, "message": "En cours…" }
  
 	match ingredient_in_hand:
  
@@ -37,8 +35,8 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 			# Extraction expresso
 			accepted_action = "faire_expresso"
 			produced_ingredient = "expresso"
-			action_duration = 1.5
-			_start_timed_action(ingredient_in_hand)
+			
+			playMiniGame(station_mini_game)
 			return {
 				"success": true,
 				"action_id": "faire_expresso",
@@ -52,8 +50,8 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 			# Mousser le lait directement
 			accepted_action = "mousser_lait"
 			produced_ingredient = "lait_mousse"
-			action_duration = 1.0
-			_start_timed_action(ingredient_in_hand)
+			
+			playMiniGame(station_mini_game)
 			return {
 				"success": true,
 				"action_id": "mousser_lait",

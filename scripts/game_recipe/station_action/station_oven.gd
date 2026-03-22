@@ -14,14 +14,11 @@ func _ready() -> void:
 	station_label = "Four"
 	accepted_action = "mettre_au_four"
 	consumes_ingredient = false
-	action_duration = 3.0
+	playMiniGame(station_mini_game)
 
 
 func try_interact(ingredient_in_hand: String) -> Dictionary:
-	if is_busy:
-		return { "success": false, "message": "Déjà en cuisson !" }
-
-	_start_timed_action("")
+	playMiniGame(station_mini_game)
 	return {
 		"success": true,
 		"action_id": "mettre_au_four",

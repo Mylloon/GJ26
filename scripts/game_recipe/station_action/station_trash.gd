@@ -14,7 +14,6 @@ func _ready() -> void:
 	station_label = "Poubelle"
 	accepted_action = "jeter"
 	consumes_ingredient = true
-	action_duration = 0.0
 
 
 func try_interact(ingredient_in_hand: String) -> Dictionary:

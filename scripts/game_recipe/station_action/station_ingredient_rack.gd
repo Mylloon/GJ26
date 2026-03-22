@@ -19,7 +19,6 @@ func _ready() -> void:
 	station_label = "Étagère"
 	accepted_action = ""
 	consumes_ingredient = false
-	action_duration = 0.0
 
 
 # ── Résolution paresseuse du menu ─────────────────────────────────────────

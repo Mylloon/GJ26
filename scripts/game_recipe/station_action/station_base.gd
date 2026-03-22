@@ -10,7 +10,7 @@ extends StaticBody3D
 @export var station_id: String = ""
 @export var station_label: String = "Poste"
 @export var accepted_action: String = ""
-# @export var station_mini_game: Node = null
+@export var station_mini_game: NodePath = ""
 
 # Ingrédients acceptés (vide = accepte tout)
 @export var accepted_ingredients: Array[String] = []
@@ -22,9 +22,7 @@ extends StaticBody3D
 @export var consumes_ingredient: bool = true
 
 # ── État interne ───────────────────────────────────────────────────────────
-var is_busy: bool = false
-var progress: float = 0.0
-@export var action_duration: float = 0.0   # 0 = instantané
+
 
 # ── Noeuds enfants ─────────────────────────────────────────────────────────
 @onready var prompt_label: Label3D        = get_node_or_null("PromptLabel")
@@ -44,8 +42,7 @@ func _ready() -> void:
 		prompt_label.visible = false
 
 func _process(_delta: float) -> void:
-	if is_busy and progress_mesh:
-		progress_mesh.scale.x = progress
+	pass
 
 
 # ── Interface appelée par le joueur ────────────────────────────────────────
@@ -57,9 +54,6 @@ func show_prompt(show_bool: bool) -> void:
 
 
 func try_interact(ingredient_in_hand: String) -> Dictionary:
-	if is_busy:
-		return { "success": false, "message": "En cours…" }
-
 	if accepted_ingredients.size() > 0:
 		if ingredient_in_hand not in accepted_ingredients and ingredient_in_hand != "":
 			return { "success": false, "message": "Mauvais ingrédient !" }
@@ -67,24 +61,24 @@ func try_interact(ingredient_in_hand: String) -> Dictionary:
 	if consumes_ingredient and ingredient_in_hand == "":
 		return { "success": false, "message": "Rien en main !" }
 
-	if action_duration > 0.0:
-		_start_timed_action(ingredient_in_hand)
-		return {
-			"success": true,
-			"action_id": accepted_action,
-			"station_id": station_id,
-			"consumes_ingredient": consumes_ingredient,
-			"produces_ingredient": "",
-			"message": "En cours…"
-		}
 	else:
+		playMiniGame(station_mini_game)
 		return _instant_action(ingredient_in_hand)
+
+func playMiniGame(mini_game_path) -> void:
+	print(mini_game_path)
+	if(mini_game_path.is_empty()):
+		print("pas de mini game")
+		return ;
+	Context.switch_scene(mini_game_path)
+	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
+
+
 
 
 # ── Action instantanée ─────────────────────────────────────────────────────
 
 func _instant_action(_ingredient_in_hand: String) -> Dictionary:
-	_play_action_animation()
 	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
 	
 	return {
@@ -95,33 +89,3 @@ func _instant_action(_ingredient_in_hand: String) -> Dictionary:
 		"produces_ingredient": produced_ingredient,
 		"message": "✓ %s" % accepted_action
 	}
-
-
-# ── Action avec durée ──────────────────────────────────────────────────────
-
-func _start_timed_action(ingredient_in_hand: String) -> void:
-	is_busy = true
-	progress = 0.0
-	if progress_mesh:
-		progress_mesh.visible = true
-		progress_mesh.scale.x = 0.0
-
-	_play_action_animation()
-
-	var tween := create_tween()
-	tween.tween_property(self, "progress", 1.0, action_duration)
-	tween.tween_callback(_on_timed_action_done.bind(ingredient_in_hand))
-
-
-func _on_timed_action_done(_ingredient_in_hand: String) -> void:
-	is_busy = false
-	if progress_mesh:
-		progress_mesh.visible = false
-	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
-
-
-# ── Animation ─────────────────────────────────────────────────────────────
-
-func _play_action_animation() -> void:
-	if anim_player and anim_player.has_animation("use"):
-		anim_player.play("use")

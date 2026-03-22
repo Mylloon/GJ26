@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b3a4p7agoreid"]
 
 [ext_resource type="PackedScene" uid="uid://bopli7nsqsjlf" path="res://scenes/player.tscn" id="1_7ilqw"]
-[ext_resource type="Script" path="res://scripts/game_recipe/kitchen.gd" id="1_lxurs"]
+[ext_resource type="Script" uid="uid://c7jfe8rty83g4" path="res://scripts/game_recipe/kitchen.gd" id="1_lxurs"]
 [ext_resource type="Script" uid="uid://b73ajpuxa6xqx" path="res://scripts/camera_3d.gd" id="2_ktc20"]
 [ext_resource type="Shader" uid="uid://c6qhkhar3xobg" path="res://shaders/edge_detection.gdshader" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://c03x6lki4xy2i" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_innercorner_backsplash.fbx" id="5_bs8bs"]
@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://5lbuomcoslxd" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/extractorhood.fbx" id="16_n55t6"]
 [ext_resource type="Script" uid="uid://cm1r7g6xnqmcf" path="res://scripts/game_recipe/ingredient_menu.gd" id="17_acu1m"]
 [ext_resource type="PackedScene" uid="uid://keaog5v4tiyk" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencabinet_half.fbx" id="17_ls4fu"]
-[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="18_k1cyo"]
+[ext_resource type="PackedScene" uid="uid://cp8gke05keals" path="res://scenes/ui/hud.tscn" id="18_k1cyo"]
 [ext_resource type="PackedScene" uid="uid://h6h2fk62kwra" path="res://assets/models/coffee_maker.fbx" id="23_5hhqf"]
 [ext_resource type="Script" uid="uid://couka8ywta5fo" path="res://scripts/game_recipe/station_action/station_cup.gd" id="23_j5uij"]
 [ext_resource type="PackedScene" uid="uid://du3abwu37blhx" path="res://assets/models/coffee.fbx" id="23_q21mm"]
@@ -37,9 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://dtlf1hu5aspud" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/stove_multi_countertop.fbx" id="25_q21mm"]
 [ext_resource type="Script" uid="uid://8dbpr8kc0r0" path="res://scripts/game_recipe/station_action/station_pan.gd" id="26_mnhhk"]
 [ext_resource type="Script" uid="uid://dhxaf6qbufleq" path="res://scripts/game_recipe/station_action/station_expresso_steamer.gd" id="26_tpccs"]
-[ext_resource type="PackedScene" path="res://scenes/ui/hud_recipe.tscn" id="30_7vcjq"]
-[ext_resource type="PackedScene" path="res://scenes/intro_dialog.tscn" id="39_tpccs"]
-[ext_resource type="Script" uid="uid://bvi0f784j82ap" path="res://scripts/intro_dialog.gd" id="40_hxncp"]
+[ext_resource type="PackedScene" uid="uid://b28v8k1majn4m" path="res://scenes/ui/hud_recipe.tscn" id="30_7vcjq"]
+[ext_resource type="PackedScene" uid="uid://cgv17ijp2gdmf" path="res://scenes/intro_dialog.tscn" id="39_tpccs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]
 
@@ -915,4 +914,3 @@ script = ExtResource("17_acu1m")
 [node name="HUDRecipe" parent="." unique_id=955788194 instance=ExtResource("30_7vcjq")]
 
 [node name="IntroDialog" parent="." unique_id=511240820 instance=ExtResource("39_tpccs")]
-script = ExtResource("40_hxncp")

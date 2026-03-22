@@ -15,7 +15,6 @@ func _ready() -> void:
 	station_label = "Tasse"
 	accepted_action = "verser"
 	consumes_ingredient = true
-	action_duration = 0.0
 
 
 func try_interact(ingredient_in_hand: String) -> Dictionary:
