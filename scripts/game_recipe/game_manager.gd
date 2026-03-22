@@ -114,13 +114,10 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 
 	if valid:
 		# Étape multi-ingrédients : attendre que tous soient apportés
+		emit_signal(
+			"step_ingredient_added", expected_step_index, ingredient, _pending_ingredients.size()
+		)
 		if not _pending_ingredients.is_empty():
-			emit_signal(
-				"step_ingredient_added",
-				expected_step_index,
-				ingredient,
-				_pending_ingredients.size()
-			)
 			return  # pas encore fini, on ne passe pas à la suivante
 		expected_step_index += 1
 		if expected_step_index >= steps.size():
