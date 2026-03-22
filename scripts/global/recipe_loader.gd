@@ -119,12 +119,8 @@ func get_action_icon(id: String) -> String:
 	return actions.get(id, {}).get("icone", "?")
 
 
-func get_random_recipe(difficulty: String = "") -> Dictionary:
-	var pool: Array
-	if difficulty == "":
-		pool = recipes.values()
-	else:
-		pool = get_recipes_by_difficulty(difficulty)
+func get_random_recipe() -> Dictionary:
+	var pool: Array = recipes.values()
 
 	if pool.is_empty():
 		return {}

@@ -16,8 +16,6 @@ signal ingredient_chosen(ingredient_id: String)
 
 func _ready() -> void:
 	visible = false
-	# Le menu doit rester interactif même quand le jeu est en pause
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	# Le rack trouve ce menu via ce groupe — pas besoin d'assignation manuelle
 	add_to_group("ingredient_menu")
 	close_button.pressed.connect(close)
@@ -31,14 +29,12 @@ func open(available_ingredients: Array[String], rack_label: String = "Étagère"
 	title_label.text = rack_label
 	_build_grid(available_ingredients)
 	visible = true
-	get_tree().paused = true
 	notepad.reset_animation()
 	animation_player.play("grid")
 
 
 func close() -> void:
 	visible = false
-	get_tree().paused = false
 
 
 # ── Fermer sur clic overlay ou Escape ─────────────────────────────────────

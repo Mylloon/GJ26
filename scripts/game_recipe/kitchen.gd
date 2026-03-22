@@ -17,10 +17,7 @@ extends Node3D
 
 # ── Paramètres de gameplay ─────────────────────────────────────────────────
 # Difficulté de la prochaine recette (peut évoluer au fil des commandes)
-var current_difficulty: String = "facile"
 var recipes_completed: int = 0
-
-var score: int = 0
 
 
 func _ready() -> void:
@@ -70,14 +67,9 @@ func _connect_nodes() -> void:
 
 func _start_next_order() -> void:
 	# Progresser la difficulté tous les 3 recettes
-	if recipes_completed >= 3 and current_difficulty == "facile":
-		current_difficulty = "moyen"
-	elif recipes_completed >= 7 and current_difficulty == "moyen":
-		current_difficulty = "difficile"
-
-	var recipe = RecipeLoader.get_random_recipe(current_difficulty)
+	var recipe = RecipeLoader.get_random_recipe()
 	if recipe.is_empty():
-		push_error("[Kitchen] Aucune recette trouvée pour la difficulté : %s" % current_difficulty)
+		push_error("[Kitchen] Aucune recette trouvée")
 		return
 
 	# Mélanger les étapes affichées (thème emmêlé)
@@ -96,12 +88,12 @@ func _on_recipe_completed(recipe_id: String) -> void:
 
 func _on_timer_timeout() -> void:
 	print("Fin de la partie")
-	if score > 10:
+	if recipes_completed > 2:
 		Context.switch_scene("res://scenes/win.tscn")
 		return
 
 	Context.switch_scene("res://scenes/lose.tscn")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$HUDTime/RichTextLabel.text = str(int($Timer.time_left)) + "s"
