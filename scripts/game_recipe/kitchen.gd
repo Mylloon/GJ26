@@ -7,12 +7,12 @@
 extends Node3D
 
 # ── Références aux noeuds ──────────────────────────────────────────────────
-@onready var player:             CharacterBody3D = $Player/CharacterBody3D
-@onready var hud:                CanvasLayer     = $HUD
-@onready var hud_recipe:         CanvasLayer     = $HUDRecipe
-@onready var interaction_popup:  CanvasLayer     = $Player/CharacterBody3D/InteractionPopup
-@onready var ingredient_menu:    CanvasLayer     = $IngredientMenu
-@onready var intro_dialog:       CanvasLayer     = $IntroDialog
+@onready var player: CharacterBody3D = $Player/CharacterBody3D
+@onready var hud: CanvasLayer = $HUD
+@onready var hud_recipe: CanvasLayer = $HUDRecipe
+@onready var interaction_popup: CanvasLayer = $Player/CharacterBody3D/InteractionPopup
+@onready var ingredient_menu: CanvasLayer = $IngredientMenu
+@onready var intro_dialog: CanvasLayer = $IntroDialog
 
 # ── Paramètres de gameplay ─────────────────────────────────────────────────
 # Difficulté de la prochaine recette (peut évoluer au fil des commandes)
@@ -34,6 +34,7 @@ func _on_intro_finished() -> void:
 
 
 # ── Connexions ─────────────────────────────────────────────────────────────
+
 
 func _connect_nodes() -> void:
 	# Player → GameManager
@@ -61,6 +62,7 @@ func _connect_nodes() -> void:
 
 
 # ── Boucle de gameplay ─────────────────────────────────────────────────────
+
 
 func _start_next_order() -> void:
 	# Progresser la difficulté tous les 3 recettes

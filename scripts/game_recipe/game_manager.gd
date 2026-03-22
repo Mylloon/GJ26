@@ -11,17 +11,17 @@ extends Node
 signal recipe_loaded(recipe: Dictionary, display_steps: Array)
 signal step_validated(step_index: int, display_index: int, success: bool)
 signal step_ingredient_added(step_index: int, ingredient_id: String, remaining: int)
-signal step_reset()                          # raté → toutes les encoches effacées
+signal step_reset  # raté → toutes les encoches effacées
 signal recipe_completed(recipe_id: String)
 signal recipe_failed(reason: String)
 signal chaos_triggered(chaos_type: String)
 signal controls_inverted_changed(inverted: bool)
 
 # ── État courant ───────────────────────────────────────────────────────────
-var current_recipe: Dictionary = {}       # recette avec étapes dans l'ordre ORIGINAL
-var display_steps: Array = []             # étapes dans l'ordre SHUFFLÉ pour l'affichage
-var display_index_map: Dictionary = {}    # { ordre_original → index_dans_display_steps }
-var expected_step_index: int = 0          # index dans l'ordre original
+var current_recipe: Dictionary = {}  # recette avec étapes dans l'ordre ORIGINAL
+var display_steps: Array = []  # étapes dans l'ordre SHUFFLÉ pour l'affichage
+var display_index_map: Dictionary = {}  # { ordre_original → index_dans_display_steps }
+var expected_step_index: int = 0  # index dans l'ordre original
 var controls_inverted: bool = false
 
 # Pour les étapes multi-ingrédients : ingrédients restant à apporter
@@ -33,7 +33,7 @@ var _pending_ingredients: Array = []
 var chaos_timer: Timer
 
 # ── Référence au joueur ────────────────────────────────────────────────────
-var player: Node = null   # assigné depuis la scène principale
+var player: Node = null  # assigné depuis la scène principale
 
 
 func _ready() -> void:
@@ -48,6 +48,7 @@ func _ready() -> void:
 
 
 # ── Charger une recette ────────────────────────────────────────────────────
+
 
 func load_recipe(recipe: Dictionary) -> void:
 	current_recipe = recipe
@@ -82,6 +83,7 @@ func _shuffle_array(arr: Array) -> Array:
 # Connecter le signal action_performed du Player ici :
 # player.action_performed.connect(GameManager.on_action_performed)
 
+
 func on_action_performed(action_id: String, ingredient: String, station_id: String) -> void:
 	if current_recipe.is_empty():
 		return
@@ -97,7 +99,12 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 		_pending_ingredients = expected_step.get("ingredients", []).duplicate()
 
 	print("[GM] action=%s | ingredient=%s | station=%s" % [action_id, ingredient, station_id])
-	print("[GM] expected action=%s | poste=%s | pending=%s" % [expected_step.get("action"), expected_step.get("poste"), _pending_ingredients])
+	print(
+		(
+			"[GM] expected action=%s | poste=%s | pending=%s"
+			% [expected_step.get("action"), expected_step.get("poste"), _pending_ingredients]
+		)
+	)
 
 	var valid := _validate_step(expected_step, action_id, ingredient, station_id)
 	print("[GM] valid=%s" % valid)
@@ -108,7 +115,12 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 	if valid:
 		# Étape multi-ingrédients : attendre que tous soient apportés
 		if not _pending_ingredients.is_empty():
-			emit_signal("step_ingredient_added", expected_step_index, ingredient, _pending_ingredients.size())
+			emit_signal(
+				"step_ingredient_added",
+				expected_step_index,
+				ingredient,
+				_pending_ingredients.size()
+			)
 			return  # pas encore fini, on ne passe pas à la suivante
 		expected_step_index += 1
 		if expected_step_index >= steps.size():
@@ -122,10 +134,13 @@ func on_action_performed(action_id: String, ingredient: String, station_id: Stri
 # Pour les étapes multi-ingrédients, on retire l'ingrédient de _pending_ingredients
 # au fur et à mesure. L'étape est validée quand la liste est vide.
 
-func _validate_step(step: Dictionary, action_id: String, ingredient: String, station_id: String) -> bool:
+
+func _validate_step(
+	step: Dictionary, action_id: String, ingredient: String, station_id: String
+) -> bool:
 	var expected_action: String = step.get("action", "")
-	var expected_poste: String  = step.get("poste", "")
-	var expected_ings: Array    = step.get("ingredients", [])
+	var expected_poste: String = step.get("poste", "")
+	var expected_ings: Array = step.get("ingredients", [])
 
 	# Vérifier action et poste
 	if action_id != expected_action:
@@ -149,6 +164,7 @@ func _validate_step(step: Dictionary, action_id: String, ingredient: String, sta
 
 # ── Recette terminée ───────────────────────────────────────────────────────
 
+
 func _on_recipe_complete() -> void:
 	emit_signal("recipe_completed", current_recipe.get("id", ""))
 	"""
@@ -163,12 +179,14 @@ func _on_recipe_complete() -> void:
 
 # ── Mauvaise étape → remise à zéro ────────────────────────────────────────
 
+
 func _on_wrong_step(action_id: String, station_id: String) -> void:
 	print("[GameManager] Mauvaise étape : %s sur %s" % [action_id, station_id])
 	#emit_signal("step_reset")
 
 
 # ── Chaos : événements aléatoires ─────────────────────────────────────────
+
 
 func _schedule_next_chaos() -> void:
 	var delay := randf_range(chaos_interval_min, chaos_interval_max)
@@ -202,6 +220,7 @@ func _toggle_controls_inverted() -> void:
 
 
 # ── API publique ───────────────────────────────────────────────────────────
+
 
 func get_current_step() -> Dictionary:
 	if current_recipe.is_empty():

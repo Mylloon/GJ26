@@ -8,21 +8,21 @@ extends CanvasLayer
 signal dialog_finished
 
 # ── Noeuds ────────────────────────────────────────────────────────────────
-@onready var overlay:       ColorRect    = $Overlay
-@onready var dialog_box:    PanelContainer = $DialogBox
-@onready var portrait_icon: TextureRect  = $DialogBox/HBox/Portrait/VBoxPortrait/PortraitIcon
-@onready var speaker_name:  Label        = $DialogBox/HBox/Portrait/VBoxPortrait/SpeakerName
-@onready var dialog_text:   RichTextLabel = $DialogBox/HBox/VBoxText/DialogText
-@onready var progress_dots: Label        = $DialogBox/HBox/VBoxText/HBoxBottom/ProgressDots
-@onready var prompt_label:  Label        = $DialogBox/HBox/VBoxText/HBoxBottom/PromptLabel
+@onready var overlay: ColorRect = $Overlay
+@onready var dialog_box: PanelContainer = $DialogBox
+@onready var portrait_icon: TextureRect = $DialogBox/HBox/Portrait/VBoxPortrait/PortraitIcon
+@onready var speaker_name: Label = $DialogBox/HBox/Portrait/VBoxPortrait/SpeakerName
+@onready var dialog_text: RichTextLabel = $DialogBox/HBox/VBoxText/DialogText
+@onready var progress_dots: Label = $DialogBox/HBox/VBoxText/HBoxBottom/ProgressDots
+@onready var prompt_label: Label = $DialogBox/HBox/VBoxText/HBoxBottom/PromptLabel
 
 # ── Couleurs ───────────────────────────────────────────────────────────────
-const C_PAPER:       Color = Color(0.961, 0.941, 0.878, 1.0)
-const C_BORDER:      Color = Color(0.545, 0.451, 0.333, 1.0)
+const C_PAPER: Color = Color(0.961, 0.941, 0.878, 1.0)
+const C_BORDER: Color = Color(0.545, 0.451, 0.333, 1.0)
 const C_PORTRAIT_BG: Color = Color(0.910, 0.875, 0.784, 1.0)
-const C_TEXT_DARK:   Color = Color(0.173, 0.122, 0.055, 1.0)
-const C_TEXT_MUTED:  Color = Color(0.420, 0.333, 0.200, 1.0)
-const C_ACCENT:      Color = Color(0.545, 0.451, 0.333, 1.0)
+const C_TEXT_DARK: Color = Color(0.173, 0.122, 0.055, 1.0)
+const C_TEXT_MUTED: Color = Color(0.420, 0.333, 0.200, 1.0)
+const C_ACCENT: Color = Color(0.545, 0.451, 0.333, 1.0)
 
 # ── Dialogues ──────────────────────────────────────────────────────────────
 # Chaque entrée : { speaker, icon, text }
@@ -30,7 +30,7 @@ const C_ACCENT:      Color = Color(0.545, 0.451, 0.333, 1.0)
 # bernard.png  : le propriétaire
 # player.png   : le joueur
 const PORTRAIT_ANDY: String = "res://assets/Andy.png"
-const PORTRAIT_PLAYER:  String ="res://assets/Matt.png"
+const PORTRAIT_PLAYER: String = "res://assets/Matt.png"
 
 const LINES: Array = [
 	{
@@ -41,17 +41,20 @@ const LINES: Array = [
 	{
 		"speaker": "M. Andy",
 		"portrait": PORTRAIT_ANDY,
-		"text": "C'est ton premier jour... et j'ai un [b]petit problème[/b]. Une urgence familiale. Je dois partir [i]maintenant[/i]."
+		"text":
+		"C'est ton premier jour... et j'ai un [b]petit problème[/b]. Une urgence familiale. Je dois partir [i]maintenant[/i]."
 	},
 	{
 		"speaker": "M. Andy",
 		"portrait": PORTRAIT_ANDY,
-		"text": "Personne d'autre ne peut venir aujourd'hui. Tu vas devoir [b]te débrouiller seul[/b] pour ouvrir le service."
+		"text":
+		"Personne d'autre ne peut venir aujourd'hui. Tu vas devoir [b]te débrouiller seul[/b] pour ouvrir le service."
 	},
 	{
 		"speaker": "M. Andy",
 		"portrait": PORTRAIT_ANDY,
-		"text": "J'ai laissé le [b]calepin des recettes[/b] sur le comptoir. Toutes les préparations sont dedans... en théorie."
+		"text":
+		"J'ai laissé le [b]calepin des recettes[/b] sur le comptoir. Toutes les préparations sont dedans... en théorie."
 	},
 	{
 		"speaker": "M. Andy",
@@ -66,12 +69,14 @@ const LINES: Array = [
 	{
 		"speaker": "Vous",
 		"portrait": PORTRAIT_PLAYER,
-		"text": "[i](Je feuillette le calepin...)[/i]\n\nAttends, les étapes sont complètement dans le désordre ! Comment je suis censé m'y retrouver ?"
+		"text":
+		"[i](Je feuillette le calepin...)[/i]\n\nAttends, les étapes sont complètement dans le désordre ! Comment je suis censé m'y retrouver ?"
 	},
 	{
 		"speaker": "Vous",
 		"portrait": PORTRAIT_PLAYER,
-		"text": "Bon. Première commande. Je regarde bien la recette avant qu'elle disparaisse... et j'essaie de retrouver l'ordre logique.\n\n[b]Allons-y.[/b]"
+		"text":
+		"Bon. Première commande. Je regarde bien la recette avant qu'elle disparaisse... et j'essaie de retrouver l'ordre logique.\n\n[b]Allons-y.[/b]"
 	},
 ]
 
@@ -81,7 +86,7 @@ var _is_typing: bool = false
 var _full_text: String = ""
 var _type_timer: float = 0.0
 var _char_index: int = 0
-const TYPE_SPEED: float = 0.03   # secondes par caractère
+const TYPE_SPEED: float = 0.03  # secondes par caractère
 
 
 func _ready() -> void:
@@ -97,9 +102,9 @@ func _style_nodes() -> void:
 	box_style.border_color = C_BORDER
 	box_style.set_border_width_all(2)
 	box_style.set_corner_radius_all(0)
-	box_style.content_margin_left   = 16.0
-	box_style.content_margin_right  = 16.0
-	box_style.content_margin_top    = 14.0
+	box_style.content_margin_left = 16.0
+	box_style.content_margin_right = 16.0
+	box_style.content_margin_top = 14.0
 	box_style.content_margin_bottom = 14.0
 	dialog_box.add_theme_stylebox_override("panel", box_style)
 
@@ -110,9 +115,9 @@ func _style_nodes() -> void:
 	port_style.border_color = C_BORDER
 	port_style.set_border_width_all(2)
 	port_style.set_corner_radius_all(0)
-	port_style.content_margin_left   = 8.0
-	port_style.content_margin_right  = 8.0
-	port_style.content_margin_top    = 10.0
+	port_style.content_margin_left = 8.0
+	port_style.content_margin_right = 8.0
+	port_style.content_margin_top = 10.0
 	port_style.content_margin_bottom = 10.0
 	port_node.add_theme_stylebox_override("panel", port_style)
 
@@ -124,6 +129,7 @@ func _style_nodes() -> void:
 
 # ── API publique ───────────────────────────────────────────────────────────
 
+
 func start() -> void:
 	visible = true
 	_current_line = 0
@@ -132,6 +138,7 @@ func start() -> void:
 
 
 # ── Affichage d'une ligne ──────────────────────────────────────────────────
+
 
 func _show_line(index: int) -> void:
 	var line: Dictionary = LINES[index]
@@ -145,9 +152,9 @@ func _show_line(index: int) -> void:
 	speaker_name.text = line["speaker"]
 	progress_dots.text = "%d / %d" % [index + 1, LINES.size()]
 
-	_full_text  = line["text"]
+	_full_text = line["text"]
 	_char_index = 0
-	_is_typing  = true
+	_is_typing = true
 	dialog_text.text = ""
 	prompt_label.text = "..."
 	set_process(true)
@@ -164,12 +171,14 @@ func _process(delta: float) -> void:
 		dialog_text.text = _full_text.substr(0, _char_index)
 		if _char_index >= _full_text.length():
 			_is_typing = false
-			prompt_label.text = "[ Clic ou Espace ]" if _current_line < LINES.size() - 1 \
-								else "[ Commencer ]"
+			prompt_label.text = (
+				"[ Clic ou Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]"
+			)
 			set_process(false)
 
 
 # ── Input ──────────────────────────────────────────────────────────────────
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
@@ -191,8 +200,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_char_index = _full_text.length()
 		dialog_text.text = _full_text
 		_is_typing = false
-		prompt_label.text = "[ Clic ou Espace ]" if _current_line < LINES.size() - 1 \
-							else "[ Commencer ]"
+		prompt_label.text = (
+			"[ Clic ou Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]"
+		)
 		set_process(false)
 		return
 
@@ -209,18 +219,21 @@ func _advance() -> void:
 
 # ── Fin du dialogue ────────────────────────────────────────────────────────
 
+
 func _finish() -> void:
 	var tween := create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "layer", 20, 0.0)
 	tween.tween_property(overlay, "color:a", 0.0, 0.35)
 	tween.parallel().tween_property(dialog_box, "modulate:a", 0.0, 0.25)
-	tween.tween_callback(func():
-		visible = false
-		emit_signal("dialog_finished")
+	tween.tween_callback(
+		func():
+			visible = false
+			emit_signal("dialog_finished")
 	)
 
 
 # ── Animation d'entrée ────────────────────────────────────────────────────
+
 
 func _animate_in() -> void:
 	overlay.color.a = 0.0

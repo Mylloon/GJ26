@@ -28,7 +28,7 @@ var nearby_interactable: Node = null
 # ── Signaux vers le GameManager ────────────────────────────────────────────
 signal action_performed(action_id: String, ingredient: String, station_id: String)
 signal ingredient_picked_up(ingredient_id: String)
-signal ingredient_dropped()
+signal ingredient_dropped
 
 
 func _ready() -> void:
