@@ -24,7 +24,7 @@ var recipes_completed: int = 0
 func _ready() -> void:
 	_connect_nodes()
 	# Bloquer le gameplay et lancer le dialogue d'intro
-	if(launchDialogue):
+	if launchDialogue:
 		get_tree().paused = true
 		intro_dialog.dialog_finished.connect(_on_intro_finished)
 		intro_dialog.start()

@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://ca055dcb1b2su" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/jar_A_small.fbx" id="13_f125y"]
 [ext_resource type="Script" uid="uid://v0kx8hw17weu" path="res://scripts/game_recipe/station_action/station_cutting_board.gd" id="13_mbcyj"]
 [ext_resource type="PackedScene" uid="uid://cns14qe6u4yjq" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_B_backsplash.fbx" id="13_n55t6"]
+[ext_resource type="Script" uid="uid://bstn2wvljedq0" path="res://scripts/taches.gd" id="13_tpccs"]
 [ext_resource type="PackedScene" uid="uid://bq1qdt6vuv0nv" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencabinet.fbx" id="14_f125y"]
+[ext_resource type="Texture2D" uid="uid://j1toaayspoks" path="res://assets/taches/tache_couleur.png" id="14_hxncp"]
 [ext_resource type="MeshLibrary" uid="uid://cceg8jx2epmvq" path="res://assets/models/ML.tres" id="14_ktc20"]
 [ext_resource type="Script" uid="uid://bmh0viry2eorx" path="res://scripts/game_recipe/station_action/station_plate.gd" id="14_psp1i"]
 [ext_resource type="PackedScene" uid="uid://ct614gm6qt3xb" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/plate_small.fbx" id="15_fr5pv"]
@@ -662,8 +664,11 @@ mesh = SubResource("ArrayMesh_1uhge")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/Kitchen_Decor2/kitchentable_A2/kitchentable_A/StaticBody3D" unique_id=247216401]
 shape = SubResource("ConcavePolygonShape3D_ud0aa")
 
-[node name="Ground" type="StaticBody3D" parent="Interior" unique_id=893671889]
+[node name="Ground" type="StaticBody3D" parent="Interior" unique_id=893671889 node_paths=PackedStringArray("mesh_instance_3d")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.44763875, 1.125, -0.38570726)
+script = ExtResource("13_tpccs")
+stain_texture = ExtResource("14_hxncp")
+mesh_instance_3d = NodePath("MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/Ground" unique_id=760655783]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
