@@ -36,12 +36,13 @@
       "mélanger",
       "mettre_au_four",
       "cuire_poele",
-      "chauffer_lait",
+      "mousser_lait",
       "mousser_lait",
       "faire_expresso",
       "verser",
       "dresser",
-      "tremper"
+      "tremper",
+      "assembler"
     ],
     "ingredients": [
       "farine",
@@ -161,19 +162,35 @@
       "categorie": "pâtisserie",
       "difficulte": "moyen",
       "etapes": [
-        { "ordre": 1, "ingredients": ["chocolat"], "action": "couper", "poste": "CUTTING_BOARD" },
+        {
+          "ordre": 1,
+          "ingredients": ["chocolat"],
+          "action": "couper",
+          "poste": "CUTTING_BOARD"
+        },
         {
           "ordre": 2,
           "ingredients": ["chocolat", "beurre", "oeufs", "sucre", "farine", "levure"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 3, "ingredients": [], "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 4, "ingredients": [], "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 3,
+          "ingredients": [],
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 4,
+          "ingredients": [],
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "gateau_vanille",
+      "label": "Gâteau vanille",
       "etapes": [
         {
           "ordre": 1,
@@ -181,40 +198,86 @@
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 2, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 3, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 2,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 3,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "gateau_fraise",
+      "label": "Gâteau fraise",
       "etapes": [
-        { "ordre": 1, "ingredients": ["fraise"], "action": "couper", "poste": "CUTTING_BOARD" },
+        {
+          "ordre": 1,
+          "ingredients": ["fraise"],
+          "action": "couper",
+          "poste": "CUTTING_BOARD"
+        },
         {
           "ordre": 2,
           "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "fraise"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 3,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 4,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "cupcake_chocolat",
+      "label": "Cupcake chocolat",
       "etapes": [
-        { "ordre": 1, "ingredients": ["chocolat"], "action": "couper", "poste": "CUTTING_BOARD" },
+        {
+          "ordre": 1,
+          "ingredients": ["chocolat"],
+          "action": "couper",
+          "poste": "CUTTING_BOARD"
+        },
         {
           "ordre": 2,
-          "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "chocolat", "lait"],
+          "ingredients": [
+            "beurre",
+            "sucre",
+            "oeufs",
+            "farine",
+            "levure",
+            "sel",
+            "chocolat",
+            "lait"
+          ],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 3,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 4,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "cupcake_vanille",
+      "label": "Cupcake vanille",
       "etapes": [
         {
           "ordre": 1,
@@ -222,36 +285,72 @@
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 2, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 3, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 2,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 3,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "cupcake_fraise",
+      "label": "Cupcake fraise",
       "etapes": [
-        { "ordre": 1, "ingredients": ["fraise"], "action": "couper", "poste": "CUTTING_BOARD" },
+        {
+          "ordre": 1,
+          "ingredients": ["fraise"],
+          "action": "couper",
+          "poste": "CUTTING_BOARD"
+        },
         {
           "ordre": 2,
           "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "fraise", "lait"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 3,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 4,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
       "id": "cupcake_mangue",
+      "label": "Cupcake mangue",
       "etapes": [
-        { "ordre": 1, "ingredients": ["mangue"], "action": "couper", "poste": "CUTTING_BOARD" },
+        {
+          "ordre": 1,
+          "ingredients": ["mangue"],
+          "action": "couper",
+          "poste": "CUTTING_BOARD"
+        },
         {
           "ordre": 2,
           "ingredients": ["beurre", "sucre", "oeufs", "farine", "levure", "sel", "mangue", "lait"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 3, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 4, "action": "mettre_au_four", "poste": "OVEN" }
+        {
+          "ordre": 3,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 4,
+          "action": "mettre_au_four",
+          "poste": "OVEN"
+        }
       ]
     },
     {
@@ -270,7 +369,7 @@
         {
           "ordre": 2,
           "ingredients": ["lait"],
-          "action": "chauffer_lait",
+          "action": "mousser_lait",
           "poste": "ESPRESSO_STEAMER",
           "note": "Chauffer le lait à la buse vapeur"
         },
@@ -370,7 +469,7 @@
         {
           "ordre": 2,
           "ingredients": [],
-          "action": "verser",
+          "action": "assembler",
           "poste": "CUP",
           "note": "Verser l'expresso dans la tasse"
         }
@@ -399,7 +498,7 @@
         {
           "ordre": 3,
           "ingredients": [],
-          "action": "verser",
+          "action": "assembler",
           "poste": "CUP",
           "note": "Verser expresso puis lait moussé dans la tasse"
         }
@@ -508,7 +607,7 @@
         {
           "ordre": 2,
           "ingredients": ["lait"],
-          "action": "chauffer_lait",
+          "action": "mousser_lait",
           "poste": "ESPRESSO_STEAMER",
           "note": "Chauffer le lait à la buse vapeur"
         },
@@ -529,7 +628,7 @@
         {
           "ordre": 5,
           "ingredients": [],
-          "action": "verser",
+          "action": "assembler",
           "poste": "CUP",
           "note": "Verser dans la tasse"
         }
@@ -537,32 +636,69 @@
     },
     {
       "id": "matcha_fraise",
+      "label": "Matcha fraise",
       "etapes": [
-        { "ordre": 1, "ingredients": ["matcha"], "action": "mettre_dans_bol", "poste": "BOWL" },
-        { "ordre": 2, "action": "chauffer_lait", "poste": "ESPRESSO_STEAMER" },
+        {
+          "ordre": 1,
+          "ingredients": ["matcha"],
+          "action": "mettre_dans_bol",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 2,
+          "action": "mousser_lait",
+          "poste": "ESPRESSO_STEAMER"
+        },
         {
           "ordre": 3,
           "ingredients": ["lait", "sirop_fraise"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 4, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 5, "action": "verser", "poste": "CUP" }
+        {
+          "ordre": 4,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 5,
+          "action": "assembler",
+          "poste": "CUP",
+          "note": "Assembler et verser dans la tasse"
+        }
       ]
     },
     {
       "id": "matcha_mangue",
       "etapes": [
-        { "ordre": 1, "ingredients": ["matcha"], "action": "mettre_dans_bol", "poste": "BOWL" },
-        { "ordre": 2, "action": "chauffer_lait", "poste": "ESPRESSO_STEAMER" },
+        {
+          "ordre": 1,
+          "ingredients": ["matcha"],
+          "action": "mettre_dans_bol",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 2,
+          "action": "mousser_lait",
+          "poste": "ESPRESSO_STEAMER"
+        },
         {
           "ordre": 3,
           "ingredients": ["lait", "sirop_mangue"],
           "action": "mettre_dans_bol",
           "poste": "BOWL"
         },
-        { "ordre": 4, "action": "mélanger", "poste": "BOWL" },
-        { "ordre": 5, "action": "verser", "poste": "CUP" }
+        {
+          "ordre": 4,
+          "action": "mélanger",
+          "poste": "BOWL"
+        },
+        {
+          "ordre": 5,
+          "action": "assembler",
+          "poste": "CUP",
+          "note": "Assembler et verser dans la tasse"
+        }
       ]
     }
   ]

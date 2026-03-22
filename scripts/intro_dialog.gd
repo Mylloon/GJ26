@@ -172,7 +172,7 @@ func _process(delta: float) -> void:
 		if _char_index >= _full_text.length():
 			_is_typing = false
 			prompt_label.text = (
-				"[ Clic ou Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]"
+				"[ Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]"
 			)
 			set_process(false)
 
@@ -185,9 +185,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	var advance := false
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		advance = true
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+	if event.is_action_pressed("interact"):
 		advance = true
 
 	if not advance:
@@ -200,9 +198,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_char_index = _full_text.length()
 		dialog_text.text = _full_text
 		_is_typing = false
-		prompt_label.text = (
-			"[ Clic ou Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]"
-		)
+		prompt_label.text = ("[ Espace ]" if _current_line < LINES.size() - 1 else "[ Commencer ]")
 		set_process(false)
 		return
 

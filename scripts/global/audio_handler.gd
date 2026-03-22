@@ -4,8 +4,11 @@ const pause_filter = 0
 
 @onready var index = AudioServer.get_bus_index(bus)
 
+const main_music = preload("res://assets/audio/background.mp3")
+
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	# Mute volume on startup, will be overrided by the config
 	set_volume(0.0)
 
@@ -28,7 +31,7 @@ func _play_music(music: AudioStream) -> void:
 
 
 func play_main_music() -> void:
-	# _play_music(main_music)
+	_play_music(main_music)
 	pass
 
 

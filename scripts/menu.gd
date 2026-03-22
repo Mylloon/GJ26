@@ -1,6 +1,10 @@
 extends Control
 
 
+func _ready() -> void:
+	AudioHandler.play_main_music()
+
+
 func _on_quit_pressed() -> void:
 	Context.exit_game()
 
