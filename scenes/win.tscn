@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c6gs33qfcqnwe"]
+
+[node name="Win" type="Node3D" unique_id=845863423]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1552332175]
+offset_right = 1282.0
+offset_bottom = 134.0
+theme_override_font_sizes/normal_font_size = 72
+text = "Gagné !"
+horizontal_alignment = 1
+vertical_alignment = 1
