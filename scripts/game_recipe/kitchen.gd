@@ -20,6 +20,8 @@ extends Node3D
 var current_difficulty: String = "facile"
 var recipes_completed: int = 0
 
+var score: int = 0
+
 
 func _ready() -> void:
 	_connect_nodes()
@@ -90,3 +92,16 @@ func _on_recipe_completed(recipe_id: String) -> void:
 	# Petite pause avant la prochaine commande
 	await get_tree().create_timer(2.0).timeout
 	_start_next_order()
+
+
+func _on_timer_timeout() -> void:
+	print("Fin de la partie")
+	if score > 10:
+		Context.switch_scene("res://scenes/win.tscn")
+		return
+
+	Context.switch_scene("res://scenes/lose.tscn")
+
+
+func _process(delta: float) -> void:
+	$HUDTime/RichTextLabel.text = str(int($Timer.time_left)) + "s"

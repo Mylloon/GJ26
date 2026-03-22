@@ -56,7 +56,7 @@ func spawn_one():
 	area.collision_mask = 2  # regarde le layer 2
 	var col_shape = CollisionShape3D.new()
 	var shape = CylinderShape3D.new()
-	shape.radius = 0.2
+	shape.radius = 0.4
 	shape.height = 0.2
 	col_shape.shape = shape
 	area.add_child(col_shape)

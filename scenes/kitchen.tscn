@@ -990,3 +990,17 @@ script = ExtResource("17_acu1m")
 [node name="HUDRecipe" parent="." unique_id=955788194 instance=ExtResource("30_7vcjq")]
 
 [node name="IntroDialog" parent="." unique_id=511240820 instance=ExtResource("39_tpccs")]
+
+[node name="Timer" type="Timer" parent="." unique_id=955639398]
+wait_time = 181.0
+one_shot = true
+autostart = true
+
+[node name="HUDTime" type="CanvasLayer" parent="." unique_id=505181559]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUDTime" unique_id=632911138]
+offset_right = 108.0
+offset_bottom = 59.0
+theme_override_font_sizes/normal_font_size = 43
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
