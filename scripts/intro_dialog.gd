@@ -10,7 +10,7 @@ signal dialog_finished
 # ── Noeuds ────────────────────────────────────────────────────────────────
 @onready var overlay:       ColorRect    = $Overlay
 @onready var dialog_box:    PanelContainer = $DialogBox
-@onready var portrait_icon: Label        = $DialogBox/HBox/Portrait/VBoxPortrait/PortraitIcon
+@onready var portrait_icon: TextureRect  = $DialogBox/HBox/Portrait/VBoxPortrait/PortraitIcon
 @onready var speaker_name:  Label        = $DialogBox/HBox/Portrait/VBoxPortrait/SpeakerName
 @onready var dialog_text:   RichTextLabel = $DialogBox/HBox/VBoxText/DialogText
 @onready var progress_dots: Label        = $DialogBox/HBox/VBoxText/HBoxBottom/ProgressDots
@@ -26,45 +26,51 @@ const C_ACCENT:      Color = Color(0.545, 0.451, 0.333, 1.0)
 
 # ── Dialogues ──────────────────────────────────────────────────────────────
 # Chaque entrée : { speaker, icon, text }
+# Chemins des portraits — à placer dans res://assets/ui/portraits/
+# bernard.png  : le propriétaire
+# player.png   : le joueur
+const PORTRAIT_ANDY: String = "res://assets/Andy.png"
+const PORTRAIT_PLAYER:  String ="res://assets/Matt.png"
+
 const LINES: Array = [
 	{
-		"speaker": "M. Bernard",
-		"icon": "👨‍🍳",
-		"text": "Ah, te voilà ! Bienvenue au [b]Café Emmêlé[/b]. Je suis M. Bernard, le propriétaire."
+		"speaker": "M. Andy",
+		"portrait": PORTRAIT_ANDY,
+		"text": "Ah, te voilà ! Bienvenue au [b]Café Emmêlé[/b]. Je suis M. Andy, le propriétaire."
 	},
 	{
-		"speaker": "M. Bernard",
-		"icon": "👨‍🍳",
+		"speaker": "M. Andy",
+		"portrait": PORTRAIT_ANDY,
 		"text": "C'est ton premier jour... et j'ai un [b]petit problème[/b]. Une urgence familiale. Je dois partir [i]maintenant[/i]."
 	},
 	{
-		"speaker": "M. Bernard",
-		"icon": "👨‍🍳",
+		"speaker": "M. Andy",
+		"portrait": PORTRAIT_ANDY,
 		"text": "Personne d'autre ne peut venir aujourd'hui. Tu vas devoir [b]te débrouiller seul[/b] pour ouvrir le service."
 	},
 	{
-		"speaker": "M. Bernard",
-		"icon": "👨‍🍳",
+		"speaker": "M. Andy",
+		"portrait": PORTRAIT_ANDY,
 		"text": "J'ai laissé le [b]calepin des recettes[/b] sur le comptoir. Toutes les préparations sont dedans... en théorie."
 	},
 	{
-		"speaker": "M. Bernard",
-		"icon": "👨‍🍳",
+		"speaker": "M. Andy",
+		"portrait": PORTRAIT_ANDY,
 		"text": "Bon, je dois y aller. [i]Bonne chance ![/i]"
 	},
 	{
 		"speaker": "Vous",
-		"icon": "🧑‍🍳",
+		"portrait": PORTRAIT_PLAYER,
 		"text": "Euh... d'accord. Je... je vais gérer."
 	},
 	{
 		"speaker": "Vous",
-		"icon": "🧑‍🍳",
+		"portrait": PORTRAIT_PLAYER,
 		"text": "[i](Je feuillette le calepin...)[/i]\n\nAttends, les étapes sont complètement dans le désordre ! Comment je suis censé m'y retrouver ?"
 	},
 	{
 		"speaker": "Vous",
-		"icon": "🧑‍🍳",
+		"portrait": PORTRAIT_PLAYER,
 		"text": "Bon. Première commande. Je regarde bien la recette avant qu'elle disparaisse... et j'essaie de retrouver l'ordre logique.\n\n[b]Allons-y.[/b]"
 	},
 ]
@@ -130,8 +136,13 @@ func start() -> void:
 func _show_line(index: int) -> void:
 	var line: Dictionary = LINES[index]
 
-	portrait_icon.text = line["icon"]
-	speaker_name.text  = line["speaker"]
+	# Charger le portrait depuis le chemin de ressource
+	var portrait_path: String = line.get("portrait", "")
+	if portrait_path != "" and ResourceLoader.exists(portrait_path):
+		portrait_icon.texture = load(portrait_path)
+	else:
+		portrait_icon.texture = null
+	speaker_name.text = line["speaker"]
 	progress_dots.text = "%d / %d" % [index + 1, LINES.size()]
 
 	_full_text  = line["text"]

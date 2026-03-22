@@ -1,21 +1,19 @@
-[gd_scene format=4 uid="uid://intro_dialog"]
+[gd_scene format=3 uid="uid://cgv17ijp2gdmf"]
 
-[ext_resource type="Script" path="res://scripts/ui/intro_dialog.gd" id="1_dialog"]
+[ext_resource type="Script" uid="uid://bvi0f784j82ap" path="res://scripts/intro_dialog.gd" id="1_dialog"]
 
-[node name="IntroDialog" type="CanvasLayer"]
+[node name="IntroDialog" type="CanvasLayer" unique_id=1452167482]
 layer = 20
 script = ExtResource("1_dialog")
 
-[node name="Overlay" type="ColorRect" parent="."]
+[node name="Overlay" type="ColorRect" parent="." unique_id=1568788627]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0.06, 0.04, 0.02, 0.72)
-mouse_filter = 0
 
-[node name="DialogBox" type="PanelContainer" parent="."]
-anchors_preset = 7
-anchor_left = 0.0
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=901370781]
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,60 +23,54 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_vertical = 0
 
-[node name="HBox" type="HBoxContainer" parent="DialogBox"]
+[node name="HBox" type="HBoxContainer" parent="DialogBox" unique_id=1957064481]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Portrait" type="PanelContainer" parent="DialogBox/HBox"]
-layout_mode = 2
+[node name="Portrait" type="PanelContainer" parent="DialogBox/HBox" unique_id=1429087372]
 custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
 
-[node name="VBoxPortrait" type="VBoxContainer" parent="DialogBox/HBox/Portrait"]
+[node name="VBoxPortrait" type="VBoxContainer" parent="DialogBox/HBox/Portrait" unique_id=1285978116]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="PortraitIcon" type="Label" parent="DialogBox/HBox/Portrait/VBoxPortrait"]
-name = "PortraitIcon"
+[node name="PortraitIcon" type="TextureRect" parent="DialogBox/HBox/Portrait/VBoxPortrait" unique_id=494258839]
 layout_mode = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 52
-text = "👨‍🍳"
+expand_mode = 3
+stretch_mode = 5
 
-[node name="SpeakerName" type="Label" parent="DialogBox/HBox/Portrait/VBoxPortrait"]
-name = "SpeakerName"
+[node name="SpeakerName" type="Label" parent="DialogBox/HBox/Portrait/VBoxPortrait" unique_id=1450376505]
 layout_mode = 2
-horizontal_alignment = 1
 theme_override_font_sizes/font_size = 11
 text = "M. Bernard"
+horizontal_alignment = 1
 
-[node name="VBoxText" type="VBoxContainer" parent="DialogBox/HBox"]
+[node name="VBoxText" type="VBoxContainer" parent="DialogBox/HBox" unique_id=629189923]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="DialogText" type="RichTextLabel" parent="DialogBox/HBox/VBoxText"]
-name = "DialogText"
+[node name="DialogText" type="RichTextLabel" parent="DialogBox/HBox/VBoxText" unique_id=1441768374]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 fit_content = true
-theme_override_font_sizes/normal_font_size = 14
 
-[node name="HBoxBottom" type="HBoxContainer" parent="DialogBox/HBox/VBoxText"]
+[node name="HBoxBottom" type="HBoxContainer" parent="DialogBox/HBox/VBoxText" unique_id=1863544879]
 layout_mode = 2
 
-[node name="ProgressDots" type="Label" parent="DialogBox/HBox/VBoxText/HBoxBottom"]
-name = "ProgressDots"
+[node name="ProgressDots" type="Label" parent="DialogBox/HBox/VBoxText/HBoxBottom" unique_id=1214784853]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 11
 text = "1 / 5"
 
-[node name="PromptLabel" type="Label" parent="DialogBox/HBox/VBoxText/HBoxBottom"]
-name = "PromptLabel"
+[node name="PromptLabel" type="Label" parent="DialogBox/HBox/VBoxText/HBoxBottom" unique_id=310751917]
 layout_mode = 2
-text = "[ Clic ou Espace pour continuer ]"
 theme_override_font_sizes/font_size = 11
+text = "[ Clic ou Espace pour continuer ]"
