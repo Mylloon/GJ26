@@ -1,10 +1,45 @@
-[gd_scene format=3 uid="uid://c6gs33qfcqnwe"]
+[gd_scene format=3 uid="uid://yyk7t6oggjte"]
+
+[ext_resource type="Texture2D" uid="uid://cak0ybv8k0rd1" path="res://assets/fond.png" id="1_iiocm"]
+[ext_resource type="Texture2D" uid="uid://cuabguwl0i8ib" path="res://assets/Background_notepad.png" id="2_yxbqr"]
+[ext_resource type="PackedScene" uid="uid://dueik5pch7c7h" path="res://tpose_mii_locking_hip_hop_dance.tscn" id="3_iiocm"]
 
 [node name="Win" type="Node3D" unique_id=845863423]
 
+[node name="Fond" type="Sprite2D" parent="." unique_id=408082796]
+position = Vector2(632.12506, 370.68744)
+scale = Vector2(0.18325967, 0.14808002)
+texture = ExtResource("1_iiocm")
+
+[node name="BackgroundNotepad" type="Sprite2D" parent="." unique_id=1024024099]
+position = Vector2(623, 419)
+scale = Vector2(0.2611695, 0.26339504)
+texture = ExtResource("2_yxbqr")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BackgroundNotepad" unique_id=86791508]
+offset_left = -1275.034
+offset_top = -721.3499
+offset_right = 1267.3761
+offset_bottom = 1256.6677
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="BackgroundNotepad/SubViewportContainer" unique_id=1320282167]
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 0.75
+size = Vector2i(2542, 1978)
+render_target_update_mode = 4
+
+[node name="tpose_mii_Locking Hip Hop Dance" parent="BackgroundNotepad/SubViewportContainer/SubViewport" unique_id=2090836074 instance=ExtResource("3_iiocm")]
+
+[node name="Camera3D" type="Camera3D" parent="BackgroundNotepad/SubViewportContainer/SubViewport" unique_id=1130204961]
+transform = Transform3D(0.9998147, -0.019249795, 4.65575e-10, 0.018720819, 0.9723403, -0.2328174, 0.0044816867, 0.23277427, 0.9725205, 0, 0.57001734, 2.7695115)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1552332175]
-offset_right = 1282.0
-offset_bottom = 134.0
+offset_left = -8.0
+offset_top = 142.0
+offset_right = 1274.0
+offset_bottom = 276.0
 theme_override_font_sizes/normal_font_size = 72
 text = "Gagné !"
 horizontal_alignment = 1

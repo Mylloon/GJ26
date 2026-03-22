@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://yhm4ptt07c26"]
+
+[ext_resource type="PackedScene" uid="uid://bv0dsje65jwa1" path="res://assets/models/Angry.fbx" id="1_xg5gi"]
+
+[node name="Angry" unique_id=2025971598 instance=ExtResource("1_xg5gi")]
+
+[node name="Light" parent="." index="1" unique_id=1002477574]
+visible = false
+
+[node name="Skeleton3D" parent="." index="2" unique_id=1899413097]
+bones/12/rotation = Quaternion(-0.093426295, 0.003822916, -0.040705718, 0.99478644)
+bones/13/rotation = Quaternion(-0.017890938, -0.00082821085, 0.046235267, 0.9987701)
+bones/20/rotation = Quaternion(-7.9427e-06, -0.0181495, 0.9998353, -0.00043755418)
+bones/21/rotation = Quaternion(0.011017945, -3.8865845e-05, -0.0035272683, 0.9999332)
