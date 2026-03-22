@@ -1,10 +1,45 @@
-[gd_scene format=3 uid="uid://bshaq4rbhq1y4"]
+[gd_scene format=3 uid="uid://b2q8xlymdd4ee"]
+
+[ext_resource type="Texture2D" uid="uid://cak0ybv8k0rd1" path="res://assets/fond.png" id="1_10rtl"]
+[ext_resource type="Texture2D" uid="uid://cuabguwl0i8ib" path="res://assets/Background_notepad.png" id="2_h0cgr"]
+[ext_resource type="PackedScene" uid="uid://c0au4o8tckl4t" path="res://tpose_mii_sad.tscn" id="3_a5bqv"]
 
 [node name="Node3D" type="Node3D" unique_id=1223600704]
 
+[node name="Fond" type="Sprite2D" parent="." unique_id=2078417555]
+position = Vector2(632.12506, 370.68744)
+scale = Vector2(0.18325967, 0.14808002)
+texture = ExtResource("1_10rtl")
+
+[node name="BackgroundNotepad" type="Sprite2D" parent="." unique_id=1361507103]
+position = Vector2(623, 419)
+scale = Vector2(0.2611695, 0.26339504)
+texture = ExtResource("2_h0cgr")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BackgroundNotepad" unique_id=560791403]
+offset_left = -1275.034
+offset_top = -721.3499
+offset_right = 1267.3761
+offset_bottom = 1256.6677
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="BackgroundNotepad/SubViewportContainer" unique_id=242606260]
+transparent_bg = true
+handle_input_locally = false
+scaling_3d_scale = 0.75
+size = Vector2i(2542, 1978)
+render_target_update_mode = 4
+
+[node name="SAD" parent="BackgroundNotepad/SubViewportContainer/SubViewport" unique_id=2090836074 instance=ExtResource("3_a5bqv")]
+
+[node name="Camera3D" type="Camera3D" parent="BackgroundNotepad/SubViewportContainer/SubViewport" unique_id=1139444406]
+transform = Transform3D(0.9998147, -0.019249795, 4.65575e-10, 0.018720819, 0.9723403, -0.2328174, 0.0044816867, 0.23277427, 0.9725205, 0, 0.57001734, 2.7695115)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=912372303]
-offset_right = 1282.0
-offset_bottom = 134.0
+offset_left = -7.0
+offset_top = 151.0
+offset_right = 1275.0
+offset_bottom = 285.0
 theme_override_font_sizes/normal_font_size = 72
 text = "Perdu...."
 horizontal_alignment = 1
