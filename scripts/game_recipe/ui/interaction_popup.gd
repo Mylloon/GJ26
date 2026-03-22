@@ -41,7 +41,7 @@ func _ready() -> void:
 func set_player(player: Node) -> void:
 	_player = player
 	# Récupérer la caméra depuis le SubViewport
-	_camera = _find_camera()
+	#_camera = _find_camera()
 
 
 func _find_camera() -> Camera3D:
@@ -127,7 +127,7 @@ func _process(_delta: float) -> void:
 		return
 
 	# Projeter la position monde de la station en coordonnées écran
-	var world_pos: Vector3 = _station.global_position + Vector3(0, 0.5, 0)
+	var world_pos: Vector3 = _station.global_position + Vector3(10, -10, 0)
 	var screen_pos: Vector2 = _camera.unproject_position(world_pos)
 
 	# Vérifier que la station est devant la caméra
