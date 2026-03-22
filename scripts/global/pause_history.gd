@@ -15,10 +15,10 @@ func _ready() -> void:
 
 ## Switch to a different scene.
 ## If it's a pause, we suspend the current scene and store, so we can save the current state.
-func switch_scene(path: NodePath, pause: ImageTexture = null) -> Error:
+func switch_scene(path: NodePath, pause = null) -> Error:
 	_history.push_back(_current_scene_path)
 
-	if pause:
+	if pause is ImageTexture or (pause is bool and pause):
 		var current_scene = get_tree().get_current_scene()
 		current_scene.process_mode = Node.PROCESS_MODE_DISABLED
 		_paused_scenes[_current_scene_path] = current_scene
@@ -26,7 +26,7 @@ func switch_scene(path: NodePath, pause: ImageTexture = null) -> Error:
 
 		var new_scene = load(path).instantiate()
 
-		if new_scene.has_method("set_background"):
+		if new_scene.has_method("set_background") and pause is ImageTexture:
 			await new_scene.set_background(pause)
 		else:
 			print_debug("Pause could have method: set_background(ImageTexture) -> void")

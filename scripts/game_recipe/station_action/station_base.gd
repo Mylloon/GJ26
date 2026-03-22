@@ -23,11 +23,10 @@ extends StaticBody3D
 
 # ── État interne ───────────────────────────────────────────────────────────
 
-
 # ── Noeuds enfants ─────────────────────────────────────────────────────────
-@onready var prompt_label: Label3D        = get_node_or_null("PromptLabel")
+@onready var prompt_label: Label3D = get_node_or_null("PromptLabel")
 @onready var mesh_instance: MeshInstance3D = get_node_or_null("MeshInstance3D")
-@onready var anim_player: AnimationPlayer  = get_node_or_null("AnimationPlayer")
+@onready var anim_player: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
 # Optionnel : barre de progression via un MeshInstance3D qu'on scale en X
 @onready var progress_mesh: MeshInstance3D = get_node_or_null("ProgressMesh")
@@ -41,11 +40,13 @@ func _ready() -> void:
 	if prompt_label:
 		prompt_label.visible = false
 
+
 func _process(_delta: float) -> void:
 	pass
 
 
 # ── Interface appelée par le joueur ────────────────────────────────────────
+
 
 func show_prompt(show_bool: bool) -> void:
 	if prompt_label:
@@ -56,31 +57,31 @@ func show_prompt(show_bool: bool) -> void:
 func try_interact(ingredient_in_hand: String) -> Dictionary:
 	if accepted_ingredients.size() > 0:
 		if ingredient_in_hand not in accepted_ingredients and ingredient_in_hand != "":
-			return { "success": false, "message": "Mauvais ingrédient !" }
+			return {"success": false, "message": "Mauvais ingrédient !"}
 
 	if consumes_ingredient and ingredient_in_hand == "":
-		return { "success": false, "message": "Rien en main !" }
+		return {"success": false, "message": "Rien en main !"}
 
 	else:
 		playMiniGame(station_mini_game)
 		return _instant_action(ingredient_in_hand)
 
+
 func playMiniGame(mini_game_path) -> void:
 	print(mini_game_path)
-	if(mini_game_path.is_empty()):
+	if mini_game_path.is_empty():
 		print("pas de mini game")
-		return ;
-	Context.switch_scene(mini_game_path)
+		return
+	Context.switch_scene(mini_game_path, true)
 	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
-
-
 
 
 # ── Action instantanée ─────────────────────────────────────────────────────
 
+
 func _instant_action(_ingredient_in_hand: String) -> Dictionary:
 	emit_signal("action_completed", station_id, accepted_action, produced_ingredient)
-	
+
 	return {
 		"success": true,
 		"action_id": accepted_action,

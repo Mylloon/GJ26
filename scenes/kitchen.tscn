@@ -706,6 +706,13 @@ mesh = SubResource("ArrayMesh_ajx50")
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationCuttingBoard/kitchencounter_straight_decorated/kitchencounter_straight_decorated" unique_id=1932583563]
 transform = Transform3D(1.4849997, 0, 0, 0, 1.4849995, -2.842171e-14, 0, 2.842171e-14, 1.4849995, 0.00028975308, -0.00022234023, 0)
 script = ExtResource("13_mbcyj")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationCuttingBoard/kitchencounter_straight_decorated/kitchencounter_straight_decorated/StaticBody3D" unique_id=318662210]
 shape = SubResource("ConcavePolygonShape3D_haktr")
@@ -721,6 +728,13 @@ mesh = SubResource("ArrayMesh_j66qw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationPlate/kitchencounter_straight_A_decorated/kitchencounter_straight_A_decorated" unique_id=1584803978]
 script = ExtResource("14_psp1i")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationPlate/kitchencounter_straight_A_decorated/kitchencounter_straight_A_decorated/StaticBody3D" unique_id=589028202]
 shape = SubResource("ConcavePolygonShape3D_qheym")
@@ -734,6 +748,13 @@ mesh = SubResource("ArrayMesh_35lvk")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationPlate/kitchencounter_straight_A2/kitchencounter_straight_A" unique_id=908570123]
 script = ExtResource("14_psp1i")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationPlate/kitchencounter_straight_A2/kitchencounter_straight_A/StaticBody3D" unique_id=1801237504]
 shape = SubResource("ConcavePolygonShape3D_e0a0v")
@@ -752,6 +773,13 @@ mesh = SubResource("ArrayMesh_edc06")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationMixer/kitchencounter_innercorner_backsplash2/kitchencounter_innercorner_backsplash" unique_id=1877732086]
 script = ExtResource("16_ls4fu")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationMixer/kitchencounter_innercorner_backsplash2/kitchencounter_innercorner_backsplash/StaticBody3D" unique_id=1731209048]
 shape = SubResource("ConcavePolygonShape3D_5y6tu")
@@ -772,6 +800,14 @@ mesh = SubResource("ArrayMesh_5jksn")
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_A/StationIngredientRack/kitchencounter_straight_B_backsplash" unique_id=1907916715]
 transform = Transform3D(2.13, 0, 0, 0, 2.1299982, -1.0658141e-13, 0, 1.0658141e-13, 2.1299982, -0.0074444413, 0.0074994564, 0.0017627984)
 script = ExtResource("12_ktc20")
+available_ingredients = null
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_A/StationIngredientRack/kitchencounter_straight_B_backsplash/StaticBody3D" unique_id=1942316539]
 transform = Transform3D(0.895, 0, 0, 0, 0.895, 0, 0, 0, 0.895, 0, 0, 0)
@@ -797,6 +833,13 @@ mesh = SubResource("ArrayMesh_1uhge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_B/StationCup/kitchentable_A4/kitchentable_A" unique_id=2083313334]
 script = ExtResource("23_j5uij")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_B/StationCup/kitchentable_A4/kitchentable_A/StaticBody3D" unique_id=1578321107]
 shape = SubResource("ConcavePolygonShape3D_ud0aa")
@@ -819,6 +862,13 @@ mesh = SubResource("ArrayMesh_1uhge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_B/StationMilkSteamer/kitchentable_A3/kitchentable_A" unique_id=1032389891]
 script = ExtResource("26_tpccs")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_B/StationMilkSteamer/kitchentable_A3/kitchentable_A/StaticBody3D" unique_id=1926292593]
 shape = SubResource("ConcavePolygonShape3D_ud0aa")
@@ -846,6 +896,13 @@ mesh = SubResource("ArrayMesh_1uhge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_B/StationPan/Node3D/kitchentable_A/kitchentable_A" unique_id=1169517252]
 script = ExtResource("26_mnhhk")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_B/StationPan/Node3D/kitchentable_A/kitchentable_A/StaticBody3D" unique_id=1516794952]
 shape = SubResource("ConcavePolygonShape3D_ud0aa")
@@ -865,6 +922,13 @@ mesh = SubResource("ArrayMesh_2hpld")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_B/StationOven/oven/oven" unique_id=670158504]
 script = ExtResource("24_psp1i")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_B/StationOven/oven/oven/StaticBody3D" unique_id=1484581488]
 shape = SubResource("ConcavePolygonShape3D_dnlye")
@@ -880,6 +944,13 @@ mesh = SubResource("ArrayMesh_xg4de")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Interior/_Interactive/WALL_B/StationTrash/crate/crate" unique_id=962974006]
 script = ExtResource("25_lxurs")
+station_id = null
+station_label = null
+accepted_action = null
+station_mini_game = null
+accepted_ingredients = null
+produced_ingredient = null
+consumes_ingredient = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interior/_Interactive/WALL_B/StationTrash/crate/crate/StaticBody3D" unique_id=489050004]
 shape = SubResource("ConcavePolygonShape3D_oar3g")
