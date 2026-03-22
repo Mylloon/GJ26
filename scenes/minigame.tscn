@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://4ya52vqb0ltm"]
-
-[ext_resource type="PackedScene" uid="uid://dutmo2hi6a44j" path="res://assets/models/KayKit_Restaurant_Bits_1.0_FREE/Assets/fbx/kitchencounter_straight_A.fbx" id="1_5iev5"]
-
-[node name="Minigame" type="Node3D" unique_id=387744074]
-
-[node name="kitchencounter_straight_A2" parent="." unique_id=812644230 instance=ExtResource("1_5iev5")]
-transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.027093053, 0.6765461, 0.7456571)
