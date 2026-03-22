@@ -12,6 +12,7 @@ extends Node3D
 @onready var hud_recipe:         CanvasLayer     = $HUDRecipe
 @onready var interaction_popup:  CanvasLayer     = $Player/CharacterBody3D/InteractionPopup
 @onready var ingredient_menu:    CanvasLayer     = $IngredientMenu
+@onready var intro_dialog:       CanvasLayer     = $IntroDialog
 
 # ── Paramètres de gameplay ─────────────────────────────────────────────────
 # Difficulté de la prochaine recette (peut évoluer au fil des commandes)
@@ -21,6 +22,14 @@ var recipes_completed: int = 0
 
 func _ready() -> void:
 	_connect_nodes()
+	# Bloquer le gameplay et lancer le dialogue d'intro
+	get_tree().paused = true
+	intro_dialog.dialog_finished.connect(_on_intro_finished)
+	intro_dialog.start()
+
+
+func _on_intro_finished() -> void:
+	get_tree().paused = false
 	_start_next_order()
 
 

@@ -10,6 +10,7 @@ extends StaticBody3D
 @export var station_id: String = ""
 @export var station_label: String = "Poste"
 @export var accepted_action: String = ""
+# @export var station_mini_game: Node = null
 
 # Ingrédients acceptés (vide = accepte tout)
 @export var accepted_ingredients: Array[String] = []

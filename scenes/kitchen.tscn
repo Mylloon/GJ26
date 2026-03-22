@@ -38,6 +38,8 @@
 [ext_resource type="Script" uid="uid://8dbpr8kc0r0" path="res://scripts/game_recipe/station_action/station_pan.gd" id="26_mnhhk"]
 [ext_resource type="Script" uid="uid://dhxaf6qbufleq" path="res://scripts/game_recipe/station_action/station_expresso_steamer.gd" id="26_tpccs"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud_recipe.tscn" id="30_7vcjq"]
+[ext_resource type="PackedScene" path="res://scenes/intro_dialog.tscn" id="39_tpccs"]
+[ext_resource type="Script" uid="uid://bvi0f784j82ap" path="res://scripts/intro_dialog.gd" id="40_hxncp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ilqw"]
 
@@ -911,3 +913,6 @@ script = ExtResource("17_acu1m")
 [node name="HUD" parent="." unique_id=931541887 instance=ExtResource("18_k1cyo")]
 
 [node name="HUDRecipe" parent="." unique_id=955788194 instance=ExtResource("30_7vcjq")]
+
+[node name="IntroDialog" parent="." unique_id=511240820 instance=ExtResource("39_tpccs")]
+script = ExtResource("40_hxncp")
