@@ -54,7 +54,7 @@ func load_recipe(recipe: Dictionary) -> void:
 	current_recipe = recipe
 	expected_step_index = 0
 	_pending_ingredients.clear()
-
+	print("loaad recipe", recipe)
 	# Générer l'ordre d'affichage shufflé — indépendant de l'ordre de validation
 	var steps: Array = recipe.get("etapes", []).duplicate()
 	display_steps = _shuffle_array(steps)
@@ -64,8 +64,10 @@ func load_recipe(recipe: Dictionary) -> void:
 	for i in display_steps.size():
 		var original_ordre: int = display_steps[i].get("ordre", i + 1)
 		display_index_map[original_ordre] = i
-
+	current_recipe = recipe
 	emit_signal("recipe_loaded", recipe, display_steps)
+	current_recipe = recipe
+	print("[Game manager] signal loaad recipe", recipe)
 	# _schedule_next_chaos()
 
 
@@ -86,10 +88,12 @@ func _shuffle_array(arr: Array) -> Array:
 
 func on_action_performed(action_id: String, ingredient: String, station_id: String) -> void:
 	if current_recipe.is_empty():
+		print("empty ???")
 		return
 
 	var steps: Array = current_recipe.get("etapes", [])
 	if expected_step_index >= steps.size():
+		print("COMPLTED ???")
 		return
 
 	var expected_step: Dictionary = steps[expected_step_index]
@@ -163,15 +167,15 @@ func _validate_step(
 
 
 func _on_recipe_complete() -> void:
-	emit_signal("recipe_completed", current_recipe.get("id", ""))
-	"""
-	chaos_timer.stop()
-	"""
 	current_recipe = {}
 	display_steps = []
 	display_index_map = {}
 	expected_step_index = 0
 	_pending_ingredients.clear()
+	emit_signal("recipe_completed", current_recipe.get("id", ""))
+	"""
+	chaos_timer.stop()
+	"""
 
 
 # ── Mauvaise étape → remise à zéro ────────────────────────────────────────
@@ -179,7 +183,7 @@ func _on_recipe_complete() -> void:
 
 func _on_wrong_step(action_id: String, station_id: String) -> void:
 	print("[GameManager] Mauvaise étape : %s sur %s" % [action_id, station_id])
-	#emit_signal("step_reset")
+
 
 
 # ── Chaos : événements aléatoires ─────────────────────────────────────────
