@@ -87,7 +87,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
-text = "✕"
+text = "❌"
 flat = true
 
 [node name="HSeparator" type="HSeparator" parent="Panel/VBox" unique_id=1152309275]
