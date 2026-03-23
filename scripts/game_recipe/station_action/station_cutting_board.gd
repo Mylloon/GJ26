@@ -11,6 +11,7 @@ const CUTTABLE: Dictionary = {
 	"fraise":      "fraise",
 	"beurre":      "beurre",
 	"pain_de_mie": "pain_de_mie",
+	"mangue": "mangue",
 }
 
 
